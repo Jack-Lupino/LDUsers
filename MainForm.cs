@@ -37,17 +37,18 @@ namespace LDUsers
             {
                 try
                 {
-                    IPAddress[] ipAddresses = Dns.GetHostAddresses(inputName);
-                    
+                    //IPAddress[] ipAddresses = Dns.GetHostAddresses(inputName);
+                    IPHostEntry host = Dns.GetHostEntry(inputName);
+
                     string test = "";
-                    foreach (IPAddress entry in ipAddresses)
+                    foreach (IPAddress entry in host.AddressList)
                     {
                         test += entry.ToString() + "\n";
                     }
                     MessageBox.Show(test);
-                    IPAddress ip = ipAddresses[0];
+                    //IPAddress ip = ipAddresses[0];
                     machineName = inputName;
-                    ipAdress = ip.ToString();
+                    //ipAdress = ip.ToString();
                 }
                 catch (Exception ex)
                 {
