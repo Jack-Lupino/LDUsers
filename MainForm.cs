@@ -32,6 +32,10 @@ namespace LDUsers
                 {
                     MessageBox.Show("IP nerastas, klaida:\n" + ex.Message);
                 }
+                if (machineName.Contains(".panbaltic.int"))
+                {
+                    machineName = machineName.Split('.')[0];
+                }
             }
             else
             {
@@ -45,10 +49,10 @@ namespace LDUsers
                     {
                         test += entry.ToString() + "\n";
                     }
-                    MessageBox.Show(test);
+                    
                     //IPAddress ip = ipAddresses[0];
-                    machineName = inputName;
-                    //ipAdress = ip.ToString();
+                    machineName = inputName.ToUpper();
+                    ipAdress = test;
                 }
                 catch (Exception ex)
                 {
