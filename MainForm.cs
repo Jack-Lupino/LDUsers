@@ -39,6 +39,25 @@ namespace LDUsers
             }
             else
             {
+                if (inputName.ToLower().StartsWith("m"))
+                {
+                    inputName = inputName.Replace("m", "llx");
+                }
+                try
+                {
+                    IPHostEntry host = Dns.GetHostEntry(inputName);
+                }
+                catch(Exception ex)
+                {
+                    if (inputName.ToLower().StartsWith("llx"))
+                    {
+                        inputName = inputName.Replace("llx", "ldx");
+                    }
+                    else if (inputName.ToLower().StartsWith("ldx"))
+                    {
+                        inputName = inputName.Replace("ldx", "llx");
+                    }
+                }
                 try
                 {
                     //IPAddress[] ipAddresses = Dns.GetHostAddresses(inputName);
