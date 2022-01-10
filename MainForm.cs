@@ -32,9 +32,9 @@ namespace LDUsers
                 {
                     MessageBox.Show("IP nerastas, klaida:\n" + ex.Message);
                 }
-                if (machineName.Contains(".panbaltic.int"))
+                if (machineName.Contains("."))
                 {
-                    machineName = machineName.Split('.')[0];
+                    machineName = machineName.Split('.')[0].ToUpper();
                 }
             }
             else
@@ -47,7 +47,11 @@ namespace LDUsers
                     string test = "";
                     foreach (IPAddress entry in host.AddressList)
                     {
-                        test += entry.ToString() + "\n";
+                        match = Regex.Match(entry.ToString(), @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}");
+                        if (match.Success)
+                        {
+                            test = entry.ToString();
+                        }
                     }
                     
                     //IPAddress ip = ipAddresses[0];
