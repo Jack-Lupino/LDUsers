@@ -43,6 +43,10 @@ namespace LDUsers
                 {
                     inputName = inputName.Replace("m", "llx");
                 }
+                else if (inputName.ToLower().StartsWith("k"))
+                {
+                    inputName = inputName.Replace("k", "glx") + "000";
+                }
                 try
                 {
                     IPHostEntry host = Dns.GetHostEntry(inputName);
@@ -57,6 +61,15 @@ namespace LDUsers
                     {
                         inputName = inputName.Replace("ldx", "llx");
                     }
+                    else if (inputName.ToLower().StartsWith("glx"))
+                    {
+                        inputName = inputName.Replace("glx", "gdx");
+                    }
+                    else if (inputName.ToLower().StartsWith("gdx"))
+                    {
+                        inputName = inputName.Replace("gdx", "glx");
+                    }
+                    
                 }
                 try
                 {
