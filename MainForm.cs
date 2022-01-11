@@ -1,4 +1,5 @@
 ﻿using System;
+using System.DirectoryServices.AccountManagement;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Text.RegularExpressions;
@@ -125,6 +126,29 @@ namespace LDUsers
                 e.SuppressKeyPress = true;
                 e.Handled = true;
             }
+        }
+
+        private void ADNameButton_Click(object sender, EventArgs e)
+        {
+            PrincipalContext pc = new PrincipalContext(ContextType.Domain, "LDAP://ou=Users,ou=LT,ou=PB,dc=panbaltic,dc=int");
+            UserPrincipal user = new UserPrincipal(pc);
+            MessageBox.Show(user.UserPrincipalName);
+            //PrincipalSearcher searcher = new PrincipalSearcher(user);
+            /*
+            foreach (var result in searcher.FindAll())
+            {
+                DirectoryEntry de = result.GetUnderlyingObject() as DirectoryEntry;
+                Console.WriteLine("First Name: " + de.Properties["givenName"].Value);
+                Console.WriteLine("Last Name : " + de.Properties["sn"].Value);
+                Console.WriteLine("SAM account name   : " + de.Properties["samAccountName"].Value);
+                Console.WriteLine("User principal name: " + de.Properties["userPrincipalName"].Value);
+                Console.WriteLine();
+            }*/
+        }
+
+        private void FNameButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

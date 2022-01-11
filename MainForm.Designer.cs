@@ -33,7 +33,14 @@
             this.PCNameButton = new System.Windows.Forms.Button();
             this.PCGBox = new System.Windows.Forms.GroupBox();
             this.PCipL = new System.Windows.Forms.Label();
+            this.ADGBox = new System.Windows.Forms.GroupBox();
+            this.ADNameL = new System.Windows.Forms.Label();
+            this.ADfnL = new System.Windows.Forms.Label();
+            this.ADNameTBox = new System.Windows.Forms.TextBox();
+            this.ADNameButton = new System.Windows.Forms.Button();
+            this.FNameButton = new System.Windows.Forms.Button();
             this.PCGBox.SuspendLayout();
+            this.ADGBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // PCNameL
@@ -47,7 +54,6 @@
             // 
             // PCNameTBox
             // 
-            this.PCNameTBox.AcceptsReturn = true;
             this.PCNameTBox.Location = new System.Drawing.Point(6, 124);
             this.PCNameTBox.Name = "PCNameTBox";
             this.PCNameTBox.Size = new System.Drawing.Size(230, 31);
@@ -73,7 +79,7 @@
             this.PCGBox.Controls.Add(this.PCNameTBox);
             this.PCGBox.Location = new System.Drawing.Point(12, 12);
             this.PCGBox.Name = "PCGBox";
-            this.PCGBox.Size = new System.Drawing.Size(425, 282);
+            this.PCGBox.Size = new System.Drawing.Size(346, 274);
             this.PCGBox.TabIndex = 3;
             this.PCGBox.TabStop = false;
             this.PCGBox.Text = "Kompiuteris";
@@ -87,16 +93,78 @@
             this.PCipL.TabIndex = 3;
             this.PCipL.Text = "IP: -";
             // 
+            // ADGBox
+            // 
+            this.ADGBox.Controls.Add(this.FNameButton);
+            this.ADGBox.Controls.Add(this.ADNameButton);
+            this.ADGBox.Controls.Add(this.ADNameTBox);
+            this.ADGBox.Controls.Add(this.ADfnL);
+            this.ADGBox.Controls.Add(this.ADNameL);
+            this.ADGBox.Location = new System.Drawing.Point(364, 12);
+            this.ADGBox.Name = "ADGBox";
+            this.ADGBox.Size = new System.Drawing.Size(413, 274);
+            this.ADGBox.TabIndex = 4;
+            this.ADGBox.TabStop = false;
+            this.ADGBox.Text = "Vartotojas";
+            // 
+            // ADNameL
+            // 
+            this.ADNameL.AutoSize = true;
+            this.ADNameL.Location = new System.Drawing.Point(6, 48);
+            this.ADNameL.Name = "ADNameL";
+            this.ADNameL.Size = new System.Drawing.Size(60, 25);
+            this.ADNameL.TabIndex = 0;
+            this.ADNameL.Text = "AD: -";
+            // 
+            // ADfnL
+            // 
+            this.ADfnL.AutoSize = true;
+            this.ADfnL.Location = new System.Drawing.Point(6, 73);
+            this.ADfnL.Name = "ADfnL";
+            this.ADfnL.Size = new System.Drawing.Size(99, 25);
+            this.ADfnL.TabIndex = 1;
+            this.ADfnL.Text = "Vardas: -";
+            // 
+            // ADNameTBox
+            // 
+            this.ADNameTBox.Location = new System.Drawing.Point(0, 124);
+            this.ADNameTBox.Name = "ADNameTBox";
+            this.ADNameTBox.Size = new System.Drawing.Size(250, 31);
+            this.ADNameTBox.TabIndex = 2;
+            // 
+            // ADNameButton
+            // 
+            this.ADNameButton.Location = new System.Drawing.Point(0, 161);
+            this.ADNameButton.Name = "ADNameButton";
+            this.ADNameButton.Size = new System.Drawing.Size(144, 44);
+            this.ADNameButton.TabIndex = 3;
+            this.ADNameButton.Text = "Įvesti";
+            this.ADNameButton.UseVisualStyleBackColor = true;
+            this.ADNameButton.Click += new System.EventHandler(this.ADNameButton_Click);
+            // 
+            // FNameButton
+            // 
+            this.FNameButton.Location = new System.Drawing.Point(246, 161);
+            this.FNameButton.Name = "FNameButton";
+            this.FNameButton.Size = new System.Drawing.Size(167, 44);
+            this.FNameButton.TabIndex = 4;
+            this.FNameButton.Text = "Pagal vardą";
+            this.FNameButton.UseVisualStyleBackColor = true;
+            this.FNameButton.Click += new System.EventHandler(this.FNameButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 393);
+            this.Controls.Add(this.ADGBox);
             this.Controls.Add(this.PCGBox);
             this.Name = "MainForm";
             this.Text = "LD Jūzeriai";
             this.PCGBox.ResumeLayout(false);
             this.PCGBox.PerformLayout();
+            this.ADGBox.ResumeLayout(false);
+            this.ADGBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -108,6 +176,12 @@
         private System.Windows.Forms.Button PCNameButton;
         private System.Windows.Forms.GroupBox PCGBox;
         private System.Windows.Forms.Label PCipL;
+        private System.Windows.Forms.GroupBox ADGBox;
+        private System.Windows.Forms.Label ADfnL;
+        private System.Windows.Forms.Label ADNameL;
+        private System.Windows.Forms.Button ADNameButton;
+        private System.Windows.Forms.TextBox ADNameTBox;
+        private System.Windows.Forms.Button FNameButton;
     }
 }
 
