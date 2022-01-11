@@ -132,13 +132,13 @@ namespace LDUsers
         private void ADNameButton_Click(object sender, EventArgs e)
         {
             PrincipalContext pc = new PrincipalContext(ContextType.Domain, ADNameTBox.Text);
-            UserPrincipal user = new UserPrincipal(pc);
-            user.UserPrincipalName = PCNameTBox.Text;
+            UserPrincipal user = UserPrincipal.FindByIdentity(pc, PCNameTBox.Text);
+            //user.UserPrincipalName = PCNameTBox.Text;
             //MessageBox.Show(user.UserPrincipalName);
 
-            PrincipalSearcher searcher = new PrincipalSearcher(user);
-            PrincipalSearchResult<Principal> results = searcher.FindAll();
-            MessageBox.Show(results.ToString());
+            //PrincipalSearcher searcher = new PrincipalSearcher(user);
+            //PrincipalSearchResult<Principal> results = searcher.FindAll();
+            MessageBox.Show(user.UserPrincipalName);
             /*
             string str = string.Empty;
             foreach (var result in searcher.FindAll())
