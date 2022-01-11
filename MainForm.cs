@@ -149,8 +149,8 @@ namespace LDUsers
                 user.SamAccountName + "\n" +
                 user.PermittedLogonTimes + "\n"
             );
-            ADNameL.Text = user.DisplayName;
-            ADfnL.Text = user.UserPrincipalName.Split('@')[0];
+            ADNameL.Text = "AD: " + user.SamAccountName;
+            ADfnL.Text = "Vardas: " + user.DisplayName;
             /*
             string str = string.Empty;
             foreach (var result in searcher.FindAll())
@@ -168,5 +168,6 @@ namespace LDUsers
         {
 
         }
+
     }
 }
