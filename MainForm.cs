@@ -1,4 +1,5 @@
 ﻿using System;
+using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -132,18 +133,19 @@ namespace LDUsers
         {
             PrincipalContext pc = new PrincipalContext(ContextType.Domain, ADNameTBox.Text);
             UserPrincipal user = new UserPrincipal(pc);
-            MessageBox.Show(user.UserPrincipalName);
-            //PrincipalSearcher searcher = new PrincipalSearcher(user);
-            /*
+            //user.UserPrincipalName = PCNameTBox.Text;
+            //MessageBox.Show(user.UserPrincipalName);
+            PrincipalSearcher searcher = new PrincipalSearcher(user);
+            string str = string.Empty;
             foreach (var result in searcher.FindAll())
             {
                 DirectoryEntry de = result.GetUnderlyingObject() as DirectoryEntry;
-                Console.WriteLine("First Name: " + de.Properties["givenName"].Value);
-                Console.WriteLine("Last Name : " + de.Properties["sn"].Value);
-                Console.WriteLine("SAM account name   : " + de.Properties["samAccountName"].Value);
-                Console.WriteLine("User principal name: " + de.Properties["userPrincipalName"].Value);
-                Console.WriteLine();
-            }*/
+                str += "First Name: " + de.Properties["givenName"].Value +
+                "\nLast Name : " + de.Properties["sn"].Value +
+                "\nSAM account name   : " + de.Properties["samAccountName"].Value +
+                "\nUser principal name: " + de.Properties["userPrincipalName"].Value;
+            }
+            MessageBox.Show(str);
         }
 
         private void FNameButton_Click(object sender, EventArgs e)
