@@ -130,7 +130,7 @@ namespace LDUsers
 
         private void ADNameButton_Click(object sender, EventArgs e)
         {
-            PrincipalContext pc = new PrincipalContext(ContextType.Domain, "LDAP://ou=Users,ou=LT,ou=PB,dc=panbaltic,dc=int");
+            PrincipalContext pc = new PrincipalContext(ContextType.Domain, ADNameTBox.Text);
             UserPrincipal user = new UserPrincipal(pc);
             MessageBox.Show(user.UserPrincipalName);
             //PrincipalSearcher searcher = new PrincipalSearcher(user);
