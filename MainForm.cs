@@ -131,14 +131,26 @@ namespace LDUsers
 
         private void ADNameButton_Click(object sender, EventArgs e)
         {
-            PrincipalContext pc = new PrincipalContext(ContextType.Domain, ADNameTBox.Text);
-            UserPrincipal user = UserPrincipal.FindByIdentity(pc, PCNameTBox.Text);
+            PrincipalContext pc = new PrincipalContext(ContextType.Domain, "panbaltic.int");
+            UserPrincipal user = UserPrincipal.FindByIdentity(pc, ADNameTBox.Text);
             //user.UserPrincipalName = PCNameTBox.Text;
             //MessageBox.Show(user.UserPrincipalName);
 
             //PrincipalSearcher searcher = new PrincipalSearcher(user);
             //PrincipalSearchResult<Principal> results = searcher.FindAll();
-            MessageBox.Show(user.UserPrincipalName);
+            MessageBox.Show
+            (
+                user.EmailAddress + "\n" +
+                user.AccountExpirationDate + "\n" +
+                user.BadLogonCount + "\n" +
+                user.DistinguishedName + "\n" +
+                user.GivenName + "\n" +
+                user.Name + "\n" +
+                user.SamAccountName + "\n" +
+                user.PermittedLogonTimes + "\n"
+            );
+            ADNameL.Text = user.DisplayName;
+            ADfnL.Text = user.UserPrincipalName.Split('@')[0];
             /*
             string str = string.Empty;
             foreach (var result in searcher.FindAll())
