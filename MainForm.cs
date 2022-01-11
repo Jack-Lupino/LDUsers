@@ -138,19 +138,17 @@ namespace LDUsers
 
             //PrincipalSearcher searcher = new PrincipalSearcher(user);
             //PrincipalSearchResult<Principal> results = searcher.FindAll();
-            MessageBox.Show
-            (
-                user.EmailAddress + "\n" +
-                user.AccountExpirationDate + "\n" +
-                user.BadLogonCount + "\n" +
-                user.DistinguishedName + "\n" +
-                user.GivenName + "\n" +
-                user.Name + "\n" +
-                user.SamAccountName + "\n" +
-                user.PermittedLogonTimes + "\n"
-            );
+            
             ADNameL.Text = "AD: " + user.SamAccountName;
             ADfnL.Text = "Vardas: " + user.DisplayName;
+            ADInfoTBox.Text =
+                "Paštas: " + user.EmailAddress + "\n" +
+                "Telefonas: " + user.VoiceTelephoneNumber + "\n\n" +
+                "Įgalinta: " + user.Enabled + "\n" +
+                "Paskutinis prisijungimas: " + user.LastLogon + "\n" +
+                "Slaptažodis keistas: " + user.LastPasswordSet + "\n" +
+                "Užrakinta: " + user.IsAccountLockedOut() + "\n" +
+                "Leistina: " + user.PermittedWorkstations + "\n";
             /*
             string str = string.Empty;
             foreach (var result in searcher.FindAll())

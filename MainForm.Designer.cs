@@ -44,10 +44,18 @@
             this.TabControl = new System.Windows.Forms.TabControl();
             this.TabInfo = new System.Windows.Forms.TabPage();
             this.TabVeiksmai = new System.Windows.Forms.TabPage();
+            this.ADInfoTBox = new System.Windows.Forms.TextBox();
+            this.PCinfoTBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.PCGBox.SuspendLayout();
             this.ADGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPBox)).BeginInit();
             this.TabControl.SuspendLayout();
+            this.TabInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // PCNameL
@@ -107,7 +115,7 @@
             this.ADGBox.Controls.Add(this.ADNameTBox);
             this.ADGBox.Controls.Add(this.ADfnL);
             this.ADGBox.Controls.Add(this.ADNameL);
-            this.ADGBox.Location = new System.Drawing.Point(318, 263);
+            this.ADGBox.Location = new System.Drawing.Point(589, 263);
             this.ADGBox.Name = "ADGBox";
             this.ADGBox.Size = new System.Drawing.Size(446, 274);
             this.ADGBox.TabIndex = 4;
@@ -166,7 +174,7 @@
             this.LogoPBox.InitialImage = null;
             this.LogoPBox.Location = new System.Drawing.Point(12, 13);
             this.LogoPBox.Name = "LogoPBox";
-            this.LogoPBox.Size = new System.Drawing.Size(752, 244);
+            this.LogoPBox.Size = new System.Drawing.Size(1023, 244);
             this.LogoPBox.TabIndex = 5;
             this.LogoPBox.TabStop = false;
             // 
@@ -177,15 +185,22 @@
             this.TabControl.Location = new System.Drawing.Point(12, 543);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(752, 402);
+            this.TabControl.Size = new System.Drawing.Size(1023, 402);
             this.TabControl.TabIndex = 6;
             // 
             // TabInfo
             // 
+            this.TabInfo.Controls.Add(this.button5);
+            this.TabInfo.Controls.Add(this.button4);
+            this.TabInfo.Controls.Add(this.button3);
+            this.TabInfo.Controls.Add(this.button2);
+            this.TabInfo.Controls.Add(this.button1);
+            this.TabInfo.Controls.Add(this.PCinfoTBox);
+            this.TabInfo.Controls.Add(this.ADInfoTBox);
             this.TabInfo.Location = new System.Drawing.Point(8, 39);
             this.TabInfo.Name = "TabInfo";
             this.TabInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInfo.Size = new System.Drawing.Size(736, 355);
+            this.TabInfo.Size = new System.Drawing.Size(1007, 355);
             this.TabInfo.TabIndex = 0;
             this.TabInfo.Text = "Informacija";
             this.TabInfo.UseVisualStyleBackColor = true;
@@ -195,10 +210,72 @@
             this.TabVeiksmai.Location = new System.Drawing.Point(8, 39);
             this.TabVeiksmai.Name = "TabVeiksmai";
             this.TabVeiksmai.Padding = new System.Windows.Forms.Padding(3);
-            this.TabVeiksmai.Size = new System.Drawing.Size(736, 355);
+            this.TabVeiksmai.Size = new System.Drawing.Size(1007, 355);
             this.TabVeiksmai.TabIndex = 1;
             this.TabVeiksmai.Text = "Veiksmai";
             this.TabVeiksmai.UseVisualStyleBackColor = true;
+            // 
+            // ADInfoTBox
+            // 
+            this.ADInfoTBox.Location = new System.Drawing.Point(537, 24);
+            this.ADInfoTBox.Multiline = true;
+            this.ADInfoTBox.Name = "ADInfoTBox";
+            this.ADInfoTBox.ReadOnly = true;
+            this.ADInfoTBox.Size = new System.Drawing.Size(257, 313);
+            this.ADInfoTBox.TabIndex = 0;
+            // 
+            // PCinfoTBox
+            // 
+            this.PCinfoTBox.Location = new System.Drawing.Point(7, 24);
+            this.PCinfoTBox.Multiline = true;
+            this.PCinfoTBox.Name = "PCinfoTBox";
+            this.PCinfoTBox.Size = new System.Drawing.Size(285, 302);
+            this.PCinfoTBox.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(299, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 54);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Auto Pagalba";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(299, 85);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(153, 59);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Back Office";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(801, 24);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(170, 54);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Atrakinti";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(801, 85);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(170, 59);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Pakeisti\r\nslaptažodį";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(801, 151);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(170, 62);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Įgalinti\r\npaskyrą";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -206,7 +283,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(775, 956);
+            this.ClientSize = new System.Drawing.Size(1047, 956);
             this.Controls.Add(this.TabControl);
             this.Controls.Add(this.LogoPBox);
             this.Controls.Add(this.ADGBox);
@@ -220,6 +297,8 @@
             this.ADGBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPBox)).EndInit();
             this.TabControl.ResumeLayout(false);
+            this.TabInfo.ResumeLayout(false);
+            this.TabInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -241,6 +320,13 @@
         private System.Windows.Forms.TabControl TabControl;
         private System.Windows.Forms.TabPage TabInfo;
         private System.Windows.Forms.TabPage TabVeiksmai;
+        private System.Windows.Forms.TextBox ADInfoTBox;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox PCinfoTBox;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }
 
