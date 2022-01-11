@@ -133,9 +133,13 @@ namespace LDUsers
         {
             PrincipalContext pc = new PrincipalContext(ContextType.Domain, ADNameTBox.Text);
             UserPrincipal user = new UserPrincipal(pc);
-            //user.UserPrincipalName = PCNameTBox.Text;
+            user.UserPrincipalName = PCNameTBox.Text;
             //MessageBox.Show(user.UserPrincipalName);
+
             PrincipalSearcher searcher = new PrincipalSearcher(user);
+            PrincipalSearchResult<Principal> results = searcher.FindAll();
+            MessageBox.Show(results.ToString());
+            /*
             string str = string.Empty;
             foreach (var result in searcher.FindAll())
             {
@@ -145,7 +149,7 @@ namespace LDUsers
                 "\nSAM account name   : " + de.Properties["samAccountName"].Value +
                 "\nUser principal name: " + de.Properties["userPrincipalName"].Value;
             }
-            MessageBox.Show(str);
+            MessageBox.Show(str);*/
         }
 
         private void FNameButton_Click(object sender, EventArgs e)
