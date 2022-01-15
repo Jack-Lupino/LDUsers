@@ -154,10 +154,10 @@ namespace LDUsers
             DirectoryEntry entry = (DirectoryEntry)user.GetUnderlyingObject();
             //ActiveDs.IADsUser native = (IADsUser)entry.NativeObject;
             MessageBox.Show("Second pass.");
-            var maxPasswordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "MaxPasswordAge").Value;
-            var passwordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "PasswordAge").Value;
+            //var maxPasswordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "MaxPasswordAge").Value;
+            //var passwordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "PasswordAge").Value;
             MessageBox.Show("Third pass.");
-            TimeSpan exp = TimeSpan.FromSeconds(maxPasswordAge) - TimeSpan.FromSeconds(passwordAge);
+            //TimeSpan exp = TimeSpan.FromSeconds(maxPasswordAge) - TimeSpan.FromSeconds(passwordAge);
             MessageBox.Show("Fourth pass.");
             //user.UserPrincipalName = PCNameTBox.Text;
             //MessageBox.Show(user.UserPrincipalName);
@@ -175,7 +175,7 @@ namespace LDUsers
             ADInfoTBox.Text =
                 "Enabled: " + user.Enabled + "\n" +
                 "Locked: " + user.IsAccountLockedOut() + "\n" +
-                "Pass Expiration: " + exp.ToString() + "\n" +
+                "Pass Expiration: " + "exp.ToString()" + "\n" +
                 "Last pass set: " + user.LastPasswordSet + "\n" +
                 "Last logon: " + user.LastLogon + "\n" +
                 "Permitted WSs: " + user.PermittedWorkstations + "\n";
@@ -225,13 +225,13 @@ namespace LDUsers
                 System.Diagnostics.Process useprocess;
                 useprocess = new System.Diagnostics.Process();
                 useprocess.StartInfo.FileName = "C:\\Users\\zygzal\\AutoPagalba.cmd";
+                useprocess.StartInfo.Arguments = $"{machineName} {user.UserPrincipalName}";
                 useprocess.Start();
                 useprocess.WaitForExit();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: \n" + ex.Message);
-                throw;
             }
         }
 
