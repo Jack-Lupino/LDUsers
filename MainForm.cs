@@ -147,13 +147,18 @@ namespace LDUsers
 
         private void ADNameButton_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Initial");
             pc = new PrincipalContext(ContextType.Domain, "panbaltic.int");
             user = UserPrincipal.FindByIdentity(pc, ADNameTBox.Text);
+            MessageBox.Show("First pass.");
             DirectoryEntry entry = (DirectoryEntry)user.GetUnderlyingObject();
             //ActiveDs.IADsUser native = (IADsUser)entry.NativeObject;
+            MessageBox.Show("Second pass.");
             var maxPasswordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "MaxPasswordAge").Value;
             var passwordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "PasswordAge").Value;
+            MessageBox.Show("Third pass.");
             TimeSpan exp = TimeSpan.FromSeconds(maxPasswordAge) - TimeSpan.FromSeconds(passwordAge);
+            MessageBox.Show("Fourth pass.");
             //user.UserPrincipalName = PCNameTBox.Text;
             //MessageBox.Show(user.UserPrincipalName);
 
@@ -170,7 +175,7 @@ namespace LDUsers
             ADInfoTBox.Text =
                 "Enabled: " + user.Enabled + "\n" +
                 "Locked: " + user.IsAccountLockedOut() + "\n" +
-                "Pass Expiration: " + exp + "\n" +
+                "Pass Expiration: " + exp.ToString() + "\n" +
                 "Last pass set: " + user.LastPasswordSet + "\n" +
                 "Last logon: " + user.LastLogon + "\n" +
                 "Permitted WSs: " + user.PermittedWorkstations + "\n";
@@ -187,6 +192,7 @@ namespace LDUsers
                 "\nUser principal name: " + de.Properties["userPrincipalName"].Value;
             }
             MessageBox.Show(str);*/
+            MessageBox.Show("Fifth pass.");
         }
 
         private void FNameButton_Click(object sender, EventArgs e)
@@ -221,7 +227,6 @@ namespace LDUsers
                 useprocess.StartInfo.FileName = "C:\\Users\\zygzal\\AutoPagalba.cmd";
                 useprocess.Start();
                 useprocess.WaitForExit();
-                MessageBox.Show("Bat file executed !!");
             }
             catch (Exception ex)
             {
@@ -239,7 +244,6 @@ namespace LDUsers
                 useprocess.StartInfo.FileName = "Z:\\TELIA\\PKINST\\BDC\\BackOffice_LD.cmd";
                 useprocess.Start();
                 useprocess.WaitForExit();
-                MessageBox.Show("Bat file executed !!");
             }
             catch (Exception ex)
             {
