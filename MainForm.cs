@@ -1,6 +1,7 @@
 ﻿using System;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
+using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Text.RegularExpressions;
@@ -10,6 +11,12 @@ namespace LDUsers
 {
     public partial class MainForm : Form
     {
+        private PrincipalContext pc;
+        private UserPrincipal user;
+        private string machineName;
+        private string ipAdress;
+        private IPHostEntry host;
+
         public MainForm()
         {
             InitializeComponent();
@@ -18,16 +25,16 @@ namespace LDUsers
         private void PCNameButton_Click(object sender, EventArgs e)
         {
             string inputName = PCNameTBox.Text;
-            string machineName = "-";
-            string ipAdress = "-";
+            machineName = "-";
+            ipAdress = "-";
             Match match = Regex.Match(inputName, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}");
             if (match.Success)
             {
                 try
                 {
-                    IPHostEntry hostEntry = Dns.GetHostEntry(inputName);
+                    host = Dns.GetHostEntry(inputName);
 
-                    machineName = hostEntry.HostName;
+                    machineName = host.HostName;
                     ipAdress = inputName;
                 }
                 catch (Exception ex)
@@ -51,7 +58,7 @@ namespace LDUsers
                 }
                 try
                 {
-                    IPHostEntry host = Dns.GetHostEntry(inputName);
+                    host = Dns.GetHostEntry(inputName);
                 }
                 catch(Exception ex)
                 {
@@ -76,7 +83,7 @@ namespace LDUsers
                 try
                 {
                     //IPAddress[] ipAddresses = Dns.GetHostAddresses(inputName);
-                    IPHostEntry host = Dns.GetHostEntry(inputName);
+                    host = Dns.GetHostEntry(inputName);
 
                     string test = "";
                     foreach (IPAddress entry in host.AddressList)
@@ -128,28 +135,48 @@ namespace LDUsers
                 e.Handled = true;
             }
         }
+        private void ADNameBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ADNameButton_Click(sender, e);
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
 
         private void ADNameButton_Click(object sender, EventArgs e)
         {
-            PrincipalContext pc = new PrincipalContext(ContextType.Domain, "panbaltic.int");
-            UserPrincipal user = UserPrincipal.FindByIdentity(pc, ADNameTBox.Text);
+            pc = new PrincipalContext(ContextType.Domain, "panbaltic.int");
+            user = UserPrincipal.FindByIdentity(pc, ADNameTBox.Text);
+            DirectoryEntry entry = (DirectoryEntry)user.GetUnderlyingObject();
+            //ActiveDs.IADsUser native = (IADsUser)entry.NativeObject;
+            var maxPasswordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "MaxPasswordAge").Value;
+            var passwordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "PasswordAge").Value;
+            TimeSpan exp = TimeSpan.FromSeconds(maxPasswordAge) - TimeSpan.FromSeconds(passwordAge);
             //user.UserPrincipalName = PCNameTBox.Text;
             //MessageBox.Show(user.UserPrincipalName);
 
             //PrincipalSearcher searcher = new PrincipalSearcher(user);
             //PrincipalSearchResult<Principal> results = searcher.FindAll();
-            
+
             ADNameL.Text = "AD: " + user.SamAccountName;
             ADfnL.Text = "Vardas: " + user.DisplayName;
+            //string expiration = "Never expires";
+            //if (user.AccountExpirationDate.HasValue)
+            //{
+            //    expiration = user.AccountExpirationDate.Value.ToLocalTime().ToString();
+            //}
             ADInfoTBox.Text =
-                "Paštas: " + user.EmailAddress + "\n" +
-                "Telefonas: " + user.VoiceTelephoneNumber + "\n\n" +
-                "Įgalinta: " + user.Enabled + "\n" +
-                "Paskutinis prisijungimas: " + user.LastLogon + "\n" +
-                "Slaptažodis keistas: " + user.LastPasswordSet + "\n" +
-                "Užrakinta: " + user.IsAccountLockedOut() + "\n" +
-                "Leistina: " + user.PermittedWorkstations + "\n";
+                "Enabled: " + user.Enabled + "\n" +
+                "Locked: " + user.IsAccountLockedOut() + "\n" +
+                "Pass Expiration: " + exp + "\n" +
+                "Last pass set: " + user.LastPasswordSet + "\n" +
+                "Last logon: " + user.LastLogon + "\n" +
+                "Permitted WSs: " + user.PermittedWorkstations + "\n";
             /*
+             *  "Paštas: " + user.EmailAddress + "\n" +
+                "Telefonas: " + user.VoiceTelephoneNumber + "\n\n" +
             string str = string.Empty;
             foreach (var result in searcher.FindAll())
             {
@@ -167,5 +194,58 @@ namespace LDUsers
 
         }
 
+        private void ADUnlockButton_Click(object sender, EventArgs e)
+        {
+            user.UnlockAccount();
+            user.Save();
+            ADNameButton_Click(sender, e);
+        }
+
+        private void ADpassButton_Click(object sender, EventArgs e)
+        {
+            user.SetPassword("Naujas456");
+            user.Save();
+        }
+
+        private void ADEnableButton_Click(object sender, EventArgs e)
+        {
+            user.Enabled = true;
+        }
+
+        private void AutoPButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process useprocess;
+                useprocess = new System.Diagnostics.Process();
+                useprocess.StartInfo.FileName = "C:\\Users\\zygzal\\AutoPagalba.cmd";
+                useprocess.Start();
+                useprocess.WaitForExit();
+                MessageBox.Show("Bat file executed !!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: \n" + ex.Message);
+                throw;
+            }
+        }
+
+        private void BOButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process useprocess;
+                useprocess = new System.Diagnostics.Process();
+                useprocess.StartInfo.FileName = "Z:\\TELIA\\PKINST\\BDC\\BackOffice_LD.cmd";
+                useprocess.Start();
+                useprocess.WaitForExit();
+                MessageBox.Show("Bat file executed !!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: \n" + ex.Message);
+                throw;
+            }
+        }
     }
 }

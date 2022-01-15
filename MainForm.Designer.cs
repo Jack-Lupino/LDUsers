@@ -43,14 +43,15 @@
             this.LogoPBox = new System.Windows.Forms.PictureBox();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.TabInfo = new System.Windows.Forms.TabPage();
-            this.TabVeiksmai = new System.Windows.Forms.TabPage();
-            this.ADInfoTBox = new System.Windows.Forms.TextBox();
+            this.ADEnableButton = new System.Windows.Forms.Button();
+            this.ADpassButton = new System.Windows.Forms.Button();
+            this.ADUnlockButton = new System.Windows.Forms.Button();
+            this.BOButton = new System.Windows.Forms.Button();
+            this.AutoPButton = new System.Windows.Forms.Button();
             this.PCinfoTBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.ADInfoTBox = new System.Windows.Forms.TextBox();
+            this.TabVeiksmai = new System.Windows.Forms.TabPage();
+            this.TabExp = new System.Windows.Forms.TabPage();
             this.PCGBox.SuspendLayout();
             this.ADGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPBox)).BeginInit();
@@ -115,7 +116,7 @@
             this.ADGBox.Controls.Add(this.ADNameTBox);
             this.ADGBox.Controls.Add(this.ADfnL);
             this.ADGBox.Controls.Add(this.ADNameL);
-            this.ADGBox.Location = new System.Drawing.Point(589, 263);
+            this.ADGBox.Location = new System.Drawing.Point(508, 263);
             this.ADGBox.Name = "ADGBox";
             this.ADGBox.Size = new System.Drawing.Size(446, 274);
             this.ADGBox.TabIndex = 4;
@@ -148,6 +149,7 @@
             this.ADNameTBox.Name = "ADNameTBox";
             this.ADNameTBox.Size = new System.Drawing.Size(250, 31);
             this.ADNameTBox.TabIndex = 2;
+            this.ADNameTBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ADNameBox_KeyDown);
             // 
             // ADfnL
             // 
@@ -170,11 +172,11 @@
             // LogoPBox
             // 
             this.LogoPBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LogoPBox.BackgroundImage")));
-            this.LogoPBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.LogoPBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.LogoPBox.InitialImage = null;
-            this.LogoPBox.Location = new System.Drawing.Point(12, 13);
+            this.LogoPBox.Location = new System.Drawing.Point(27, 12);
             this.LogoPBox.Name = "LogoPBox";
-            this.LogoPBox.Size = new System.Drawing.Size(1023, 244);
+            this.LogoPBox.Size = new System.Drawing.Size(921, 244);
             this.LogoPBox.TabIndex = 5;
             this.LogoPBox.TabStop = false;
             // 
@@ -182,47 +184,79 @@
             // 
             this.TabControl.Controls.Add(this.TabInfo);
             this.TabControl.Controls.Add(this.TabVeiksmai);
+            this.TabControl.Controls.Add(this.TabExp);
             this.TabControl.Location = new System.Drawing.Point(12, 543);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(1023, 402);
+            this.TabControl.Size = new System.Drawing.Size(950, 402);
             this.TabControl.TabIndex = 6;
             // 
             // TabInfo
             // 
-            this.TabInfo.Controls.Add(this.button5);
-            this.TabInfo.Controls.Add(this.button4);
-            this.TabInfo.Controls.Add(this.button3);
-            this.TabInfo.Controls.Add(this.button2);
-            this.TabInfo.Controls.Add(this.button1);
+            this.TabInfo.Controls.Add(this.ADEnableButton);
+            this.TabInfo.Controls.Add(this.ADpassButton);
+            this.TabInfo.Controls.Add(this.ADUnlockButton);
+            this.TabInfo.Controls.Add(this.BOButton);
+            this.TabInfo.Controls.Add(this.AutoPButton);
             this.TabInfo.Controls.Add(this.PCinfoTBox);
             this.TabInfo.Controls.Add(this.ADInfoTBox);
             this.TabInfo.Location = new System.Drawing.Point(8, 39);
             this.TabInfo.Name = "TabInfo";
             this.TabInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInfo.Size = new System.Drawing.Size(1007, 355);
+            this.TabInfo.Size = new System.Drawing.Size(934, 355);
             this.TabInfo.TabIndex = 0;
             this.TabInfo.Text = "Informacija";
             this.TabInfo.UseVisualStyleBackColor = true;
             // 
-            // TabVeiksmai
+            // ADEnableButton
             // 
-            this.TabVeiksmai.Location = new System.Drawing.Point(8, 39);
-            this.TabVeiksmai.Name = "TabVeiksmai";
-            this.TabVeiksmai.Padding = new System.Windows.Forms.Padding(3);
-            this.TabVeiksmai.Size = new System.Drawing.Size(1007, 355);
-            this.TabVeiksmai.TabIndex = 1;
-            this.TabVeiksmai.Text = "Veiksmai";
-            this.TabVeiksmai.UseVisualStyleBackColor = true;
+            this.ADEnableButton.Location = new System.Drawing.Point(743, 149);
+            this.ADEnableButton.Name = "ADEnableButton";
+            this.ADEnableButton.Size = new System.Drawing.Size(170, 62);
+            this.ADEnableButton.TabIndex = 6;
+            this.ADEnableButton.Text = "Įgalinti\r\npaskyrą";
+            this.ADEnableButton.UseVisualStyleBackColor = true;
+            this.ADEnableButton.Click += new System.EventHandler(this.ADEnableButton_Click);
             // 
-            // ADInfoTBox
+            // ADpassButton
             // 
-            this.ADInfoTBox.Location = new System.Drawing.Point(537, 24);
-            this.ADInfoTBox.Multiline = true;
-            this.ADInfoTBox.Name = "ADInfoTBox";
-            this.ADInfoTBox.ReadOnly = true;
-            this.ADInfoTBox.Size = new System.Drawing.Size(257, 313);
-            this.ADInfoTBox.TabIndex = 0;
+            this.ADpassButton.Location = new System.Drawing.Point(743, 84);
+            this.ADpassButton.Name = "ADpassButton";
+            this.ADpassButton.Size = new System.Drawing.Size(170, 59);
+            this.ADpassButton.TabIndex = 5;
+            this.ADpassButton.Text = "Pakeisti\r\nslaptažodį";
+            this.ADpassButton.UseVisualStyleBackColor = true;
+            this.ADpassButton.Click += new System.EventHandler(this.ADpassButton_Click);
+            // 
+            // ADUnlockButton
+            // 
+            this.ADUnlockButton.Location = new System.Drawing.Point(743, 24);
+            this.ADUnlockButton.Name = "ADUnlockButton";
+            this.ADUnlockButton.Size = new System.Drawing.Size(170, 54);
+            this.ADUnlockButton.TabIndex = 4;
+            this.ADUnlockButton.Text = "Atrakinti";
+            this.ADUnlockButton.UseVisualStyleBackColor = true;
+            this.ADUnlockButton.Click += new System.EventHandler(this.ADUnlockButton_Click);
+            // 
+            // BOButton
+            // 
+            this.BOButton.Location = new System.Drawing.Point(299, 85);
+            this.BOButton.Name = "BOButton";
+            this.BOButton.Size = new System.Drawing.Size(153, 59);
+            this.BOButton.TabIndex = 3;
+            this.BOButton.Text = "Back Office";
+            this.BOButton.UseVisualStyleBackColor = true;
+            this.BOButton.Click += new System.EventHandler(this.BOButton_Click);
+            // 
+            // AutoPButton
+            // 
+            this.AutoPButton.Location = new System.Drawing.Point(299, 24);
+            this.AutoPButton.Name = "AutoPButton";
+            this.AutoPButton.Size = new System.Drawing.Size(153, 54);
+            this.AutoPButton.TabIndex = 2;
+            this.AutoPButton.Text = "Auto Pagalba";
+            this.AutoPButton.UseVisualStyleBackColor = true;
+            this.AutoPButton.Click += new System.EventHandler(this.AutoPButton_Click);
             // 
             // PCinfoTBox
             // 
@@ -232,50 +266,36 @@
             this.PCinfoTBox.Size = new System.Drawing.Size(285, 302);
             this.PCinfoTBox.TabIndex = 1;
             // 
-            // button1
+            // ADInfoTBox
             // 
-            this.button1.Location = new System.Drawing.Point(299, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 54);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Auto Pagalba";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ADInfoTBox.AcceptsReturn = true;
+            this.ADInfoTBox.AcceptsTab = true;
+            this.ADInfoTBox.Location = new System.Drawing.Point(473, 24);
+            this.ADInfoTBox.Multiline = true;
+            this.ADInfoTBox.Name = "ADInfoTBox";
+            this.ADInfoTBox.ReadOnly = true;
+            this.ADInfoTBox.Size = new System.Drawing.Size(257, 313);
+            this.ADInfoTBox.TabIndex = 0;
             // 
-            // button2
+            // TabVeiksmai
             // 
-            this.button2.Location = new System.Drawing.Point(299, 85);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 59);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Back Office";
-            this.button2.UseVisualStyleBackColor = true;
+            this.TabVeiksmai.Location = new System.Drawing.Point(8, 39);
+            this.TabVeiksmai.Name = "TabVeiksmai";
+            this.TabVeiksmai.Padding = new System.Windows.Forms.Padding(3);
+            this.TabVeiksmai.Size = new System.Drawing.Size(934, 355);
+            this.TabVeiksmai.TabIndex = 1;
+            this.TabVeiksmai.Text = "Veiksmai";
+            this.TabVeiksmai.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // TabExp
             // 
-            this.button3.Location = new System.Drawing.Point(801, 24);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(170, 54);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Atrakinti";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(801, 85);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(170, 59);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Pakeisti\r\nslaptažodį";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(801, 151);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(170, 62);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "Įgalinti\r\npaskyrą";
-            this.button5.UseVisualStyleBackColor = true;
+            this.TabExp.Location = new System.Drawing.Point(8, 39);
+            this.TabExp.Name = "TabExp";
+            this.TabExp.Padding = new System.Windows.Forms.Padding(3);
+            this.TabExp.Size = new System.Drawing.Size(934, 355);
+            this.TabExp.TabIndex = 2;
+            this.TabExp.Text = "Eksperimentalu";
+            this.TabExp.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -283,7 +303,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1047, 956);
+            this.ClientSize = new System.Drawing.Size(971, 956);
             this.Controls.Add(this.TabControl);
             this.Controls.Add(this.LogoPBox);
             this.Controls.Add(this.ADGBox);
@@ -321,12 +341,13 @@
         private System.Windows.Forms.TabPage TabInfo;
         private System.Windows.Forms.TabPage TabVeiksmai;
         private System.Windows.Forms.TextBox ADInfoTBox;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ADUnlockButton;
+        private System.Windows.Forms.Button BOButton;
+        private System.Windows.Forms.Button AutoPButton;
         private System.Windows.Forms.TextBox PCinfoTBox;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button ADEnableButton;
+        private System.Windows.Forms.Button ADpassButton;
+        private System.Windows.Forms.TabPage TabExp;
     }
 }
 
