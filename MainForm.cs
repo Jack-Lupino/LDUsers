@@ -147,18 +147,13 @@ namespace LDUsers
 
         private void ADNameButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Initial");
             pc = new PrincipalContext(ContextType.Domain, "panbaltic.int");
             user = UserPrincipal.FindByIdentity(pc, ADNameTBox.Text);
-            MessageBox.Show("First pass.");
             DirectoryEntry entry = (DirectoryEntry)user.GetUnderlyingObject();
             //ActiveDs.IADsUser native = (IADsUser)entry.NativeObject;
-            MessageBox.Show("Second pass.");
             //var maxPasswordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "MaxPasswordAge").Value;
             //var passwordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "PasswordAge").Value;
-            MessageBox.Show("Third pass.");
             //TimeSpan exp = TimeSpan.FromSeconds(maxPasswordAge) - TimeSpan.FromSeconds(passwordAge);
-            MessageBox.Show("Fourth pass.");
             //user.UserPrincipalName = PCNameTBox.Text;
             //MessageBox.Show(user.UserPrincipalName);
 
@@ -191,7 +186,6 @@ namespace LDUsers
                 "\nUser principal name: " + de.Properties["userPrincipalName"].Value;
             }
             MessageBox.Show(str);*/
-            MessageBox.Show("Fifth pass.");
         }
 
         private void FNameButton_Click(object sender, EventArgs e)
@@ -229,7 +223,6 @@ namespace LDUsers
                 useprocess.StartInfo.FileName = "C:\\Users\\zygzal\\AutoPagalba.cmd";
                 useprocess.StartInfo.Arguments = $"{machineName} {user.SamAccountName}";
                 useprocess.Start();
-                useprocess.WaitForExit();
             }
             catch (Exception ex)
             {
@@ -245,7 +238,6 @@ namespace LDUsers
                 useprocess = new System.Diagnostics.Process();
                 useprocess.StartInfo.FileName = "Z:\\TELIA\\PKINST\\BDC\\BackOffice_LD.cmd";
                 useprocess.Start();
-                useprocess.WaitForExit();
             }
             catch (Exception ex)
             {
@@ -262,7 +254,6 @@ namespace LDUsers
                 useprocess.StartInfo.FileName = "C:\\Tools\\PsTools\\PsExec.exe";
                 useprocess.StartInfo.Arguments = $"\\\\{machineName} -s cmd";
                 useprocess.Start();
-                useprocess.WaitForExit();
             }
             catch (Exception ex)
             {
@@ -279,7 +270,6 @@ namespace LDUsers
                 useprocess.StartInfo.FileName = "C:\\Tools\\PsTools\\PsExec.exe";
                 useprocess.StartInfo.Arguments = $"\\\\{machineName} -s Powershell";
                 useprocess.Start();
-                useprocess.WaitForExit();
             }
             catch (Exception ex)
             {
@@ -307,12 +297,40 @@ namespace LDUsers
                 useprocess.StartInfo.FileName = "C:\\Program Files\\SolarWinds\\DameWare Mini Remote Control x64\\DWRCC.exe";
                 useprocess.StartInfo.Arguments = flag;
                 useprocess.Start();
-                useprocess.WaitForExit();
                 MessageBox.Show("pavyko");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: \n" + ex.Message);
+            }
+        }
+
+        private void PCtoADButton_Click(object sender, EventArgs e)
+        {
+            if (machineName != "-")
+            {
+                try
+                {
+                    System.Diagnostics.Process useprocess;
+                    useprocess = new System.Diagnostics.Process();
+                    useprocess.StartInfo.UseShellExecute = false;
+                    useprocess.StartInfo.RedirectStandardOutput = true;
+                    useprocess.StartInfo.CreateNoWindow = true;
+                    useprocess.StartInfo.FileName = "C:\\Tools\\PsTools\\PsExec.exe";
+                    useprocess.StartInfo.Arguments = $"\\\\{machineName} -s cmd echo %username%";
+                    useprocess.Start();
+                    string adName = useprocess.StandardOutput.ReadToEnd();
+                    useprocess.WaitForExit();
+                    MessageBox.Show(adName);
+                    ADNameTBox.Text = adName;
+                    ADNameButton_Click(sender, e);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: \n" + ex.Message);
+                }
+                
+
             }
         }
     }

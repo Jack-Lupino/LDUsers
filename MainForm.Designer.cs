@@ -60,6 +60,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.DWipChBox = new System.Windows.Forms.CheckBox();
             this.ADpassChBox = new System.Windows.Forms.CheckBox();
+            this.PCtoADButton = new System.Windows.Forms.Button();
             this.PCGBox.SuspendLayout();
             this.ADGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPBox)).BeginInit();
@@ -226,7 +227,7 @@
             // 
             // TiaButton
             // 
-            this.TiaButton.Location = new System.Drawing.Point(95, 343);
+            this.TiaButton.Location = new System.Drawing.Point(106, 343);
             this.TiaButton.Name = "TiaButton";
             this.TiaButton.Size = new System.Drawing.Size(73, 78);
             this.TiaButton.TabIndex = 10;
@@ -356,7 +357,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(7, 343);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 48);
+            this.button1.Size = new System.Drawing.Size(93, 48);
             this.button1.TabIndex = 11;
             this.button1.Text = "Detali";
             this.button1.UseVisualStyleBackColor = true;
@@ -390,6 +391,16 @@
             this.ADpassChBox.Text = "Must change pass on next logon";
             this.ADpassChBox.UseVisualStyleBackColor = true;
             // 
+            // PCtoADButton
+            // 
+            this.PCtoADButton.Location = new System.Drawing.Point(384, 312);
+            this.PCtoADButton.Name = "PCtoADButton";
+            this.PCtoADButton.Size = new System.Drawing.Size(55, 49);
+            this.PCtoADButton.TabIndex = 7;
+            this.PCtoADButton.Text = ">>";
+            this.PCtoADButton.UseVisualStyleBackColor = true;
+            this.PCtoADButton.Click += new System.EventHandler(this.PCtoADButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -397,6 +408,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(971, 1030);
+            this.Controls.Add(this.PCtoADButton);
             this.Controls.Add(this.TabControl);
             this.Controls.Add(this.LogoPBox);
             this.Controls.Add(this.ADGBox);
@@ -449,6 +461,7 @@
         private System.Windows.Forms.CheckBox DWipChBox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button PCtoADButton;
     }
 }
 
