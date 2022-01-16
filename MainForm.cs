@@ -332,7 +332,7 @@ namespace LDUsers
                     {
                         MessageBox.Show(item);
                     }
-                    ADNameTBox.Text = str[str.Count-1].ToString();
+                    ADNameTBox.Text = str[str.Count-1].ToString().Trim();
                     ADNameButton_Click(sender, e);
                 }
                 catch (Exception ex)
