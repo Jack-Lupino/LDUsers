@@ -151,7 +151,6 @@ namespace LDUsers
             pc = new PrincipalContext(ContextType.Domain, "panbaltic.int");
             user = UserPrincipal.FindByIdentity(pc, ADNameTBox.Text);
             DirectoryEntry entry = (DirectoryEntry)user.GetUnderlyingObject();
-            MessageBox.Show(entry.InvokeGet("PasswordExpirationDate").ToString());
             //ActiveDs.IADsUser native = (IADsUser)entry.NativeObject;
             //var maxPasswordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "MaxPasswordAge").Value;
             //var passwordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "PasswordAge").Value;
@@ -170,11 +169,11 @@ namespace LDUsers
             //    expiration = user.AccountExpirationDate.Value.ToLocalTime().ToString();
             //}
             ADInfoTBox.Text =
-                "Enabled: " + user.Enabled + "\r\n" +
-                "Locked: " + user.IsAccountLockedOut() + "\r\n" +
-                "Pass Expiration: " + "exp.ToString()" + "\r\n" +
-                "Last pass set: " + user.LastPasswordSet + "\r\n" +
-                "Last logon: " + user.LastLogon + "\r\n";
+                "Galioja: " + user.Enabled + "\r\n" +
+                "Užrakinta: " + user.IsAccountLockedOut() + "\r\n\r\n" +
+                "Slaptažodis pasibaigs:\r\n" + entry.InvokeGet("PasswordExpirationDate") + "\r\n" +
+                "Slaptažodis keistas:\r\n" + user.LastPasswordSet + "\r\n" +
+                "Paskutinį kartą jungtąsi:\r\n" + user.LastLogon + "\r\n";
             /*
              *  "Paštas: " + user.EmailAddress + "\n" +
                 "Telefonas: " + user.VoiceTelephoneNumber + "\n\n" +
