@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.Linq;
@@ -322,15 +323,16 @@ namespace LDUsers
                     string adName = useprocess.StandardOutput.ReadToEnd();
                     useprocess.WaitForExit();
                     MessageBox.Show(adName);
-                    string str = String.Empty;
+                    ArrayList str = new ArrayList();
                     foreach (var item in adName.Split('\\'))
                     {
-                        str += "Line: " + item + "\r\n";
+                        str.Add(item);
                     }
-                    MessageBox.Show(str);
-                    str = str.Split('\\')[1];
-                    MessageBox.Show(str);
-                    ADNameTBox.Text = str;
+                    foreach (string item in str)
+                    {
+                        MessageBox.Show(item);
+                    }
+                    ADNameTBox.Text = str[str.Count-1].ToString();
                     ADNameButton_Click(sender, e);
                 }
                 catch (Exception ex)
