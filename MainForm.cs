@@ -173,12 +173,11 @@ namespace LDUsers
             //    expiration = user.AccountExpirationDate.Value.ToLocalTime().ToString();
             //}
             ADInfoTBox.Text =
-                "Enabled: " + user.Enabled + "\n" +
-                "Locked: " + user.IsAccountLockedOut() + "\n" +
-                "Pass Expiration: " + "exp.ToString()" + "\n" +
-                "Last pass set: " + user.LastPasswordSet + "\n" +
-                "Last logon: " + user.LastLogon + "\n" +
-                "Permitted WSs: " + user.PermittedWorkstations + "\n";
+                "Enabled: " + user.Enabled + "\r\n" +
+                "Locked: " + user.IsAccountLockedOut() + "\r\n" +
+                "Pass Expiration: " + "exp.ToString()" + "\r\n" +
+                "Last pass set: " + user.LastPasswordSet + "\r\n" +
+                "Last logon: " + user.LastLogon + "\r\n";
             /*
              *  "Paštas: " + user.EmailAddress + "\n" +
                 "Telefonas: " + user.VoiceTelephoneNumber + "\n\n" +
@@ -211,11 +210,14 @@ namespace LDUsers
         {
             user.SetPassword("Naujas456");
             user.Save();
+            ADNameButton_Click(sender, e);
         }
 
         private void ADEnableButton_Click(object sender, EventArgs e)
         {
             user.Enabled = true;
+            user.Save();
+            ADNameButton_Click(sender, e);
         }
 
         private void AutoPButton_Click(object sender, EventArgs e)
@@ -225,7 +227,7 @@ namespace LDUsers
                 System.Diagnostics.Process useprocess;
                 useprocess = new System.Diagnostics.Process();
                 useprocess.StartInfo.FileName = "C:\\Users\\zygzal\\AutoPagalba.cmd";
-                useprocess.StartInfo.Arguments = $"{machineName} {user.UserPrincipalName}";
+                useprocess.StartInfo.Arguments = $"{machineName} {user.SamAccountName}";
                 useprocess.Start();
                 useprocess.WaitForExit();
             }
@@ -248,7 +250,6 @@ namespace LDUsers
             catch (Exception ex)
             {
                 MessageBox.Show("Error: \n" + ex.Message);
-                throw;
             }
         }
     }
