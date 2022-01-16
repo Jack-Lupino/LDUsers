@@ -317,9 +317,9 @@ namespace LDUsers
                     useprocess.StartInfo.RedirectStandardOutput = true;
                     useprocess.StartInfo.CreateNoWindow = true;
                     useprocess.StartInfo.FileName = "C:\\Tools\\PsTools\\PsExec.exe";
-                    useprocess.StartInfo.Arguments = $"\\\\{machineName} -s cmd /c \"echo %username%\"";
+                    useprocess.StartInfo.Arguments = $"WMIC /NODE:\"{machineName}\" COMPUTERSYSTEM GET USERNAME";
                     useprocess.Start();
-                    string adName = useprocess.StandardOutput.ReadToEnd();
+                    string adName = useprocess.StandardOutput.ReadToEnd().Split('\\')[1];
                     useprocess.WaitForExit();
                     MessageBox.Show(adName);
                     ADNameTBox.Text = adName;
