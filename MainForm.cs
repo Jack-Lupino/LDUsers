@@ -328,7 +328,7 @@ namespace LDUsers
                         str += "Line: " + item + "\r\n";
                     }
                     MessageBox.Show(str);
-                    str = str.Split('\\')[str.Length - 1];
+                    str = str.Split('\\')[1];
                     MessageBox.Show(str);
                     ADNameTBox.Text = str;
                     ADNameButton_Click(sender, e);
