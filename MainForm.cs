@@ -320,7 +320,7 @@ namespace LDUsers
                     useprocess.StartInfo.FileName = "cmd.exe";
                     useprocess.StartInfo.Arguments = $"/C WMIC /NODE:\"{machineName}\" COMPUTERSYSTEM GET USERNAME";
                     useprocess.Start();
-                    string adName = useprocess.StandardOutput.ReadToEnd();
+                    string adName = useprocess.StandardOutput.ReadToEnd().Trim();
                     useprocess.WaitForExit();
                     MessageBox.Show(adName);
                     ArrayList str = new ArrayList();
