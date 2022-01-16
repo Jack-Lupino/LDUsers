@@ -328,7 +328,7 @@ namespace LDUsers
                         str.Add(item);
                     }
                     string yet = str[str.Count - 1].ToString();
-                    ADNameTBox.Text = yet.Substring(0, yet.Length-2);
+                    ADNameTBox.Text = yet.Substring(0, yet.Length);
                     ADNameButton_Click(sender, e);
                 }
                 catch (Exception ex)
