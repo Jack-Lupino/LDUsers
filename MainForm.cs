@@ -322,14 +322,16 @@ namespace LDUsers
                     string adName = useprocess.StandardOutput.ReadToEnd();
                     useprocess.WaitForExit();
                     MessageBox.Show(adName);
-                    //ADNameTBox.Text = adName;
-                    //ADNameButton_Click(sender, e);
                     string str = String.Empty;
                     foreach (var item in adName.Split('\\'))
                     {
                         str += "Line: " + item + "\r\n";
                     }
                     MessageBox.Show(str);
+                    str = str.Split('\\')[str.Length - 1];
+                    MessageBox.Show(str);
+                    ADNameTBox.Text = str;
+                    ADNameButton_Click(sender, e);
                 }
                 catch (Exception ex)
                 {
