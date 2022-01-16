@@ -319,9 +319,11 @@ namespace LDUsers
                     useprocess.StartInfo.FileName = "cmd.exe";
                     useprocess.StartInfo.Arguments = $"WMIC /NODE:\"{machineName}\" COMPUTERSYSTEM GET USERNAME";
                     useprocess.Start();
+                    MessageBox.Show(useprocess.StandardOutput.ReadToEnd());
                     string adName = useprocess.StandardOutput.ReadToEnd().Split('\\')[1];
+
                     useprocess.WaitForExit();
-                    MessageBox.Show(adName);
+                    
                     ADNameTBox.Text = adName;
                     ADNameButton_Click(sender, e);
                 }
