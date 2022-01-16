@@ -317,7 +317,7 @@ namespace LDUsers
                     useprocess.StartInfo.RedirectStandardOutput = true;
                     useprocess.StartInfo.CreateNoWindow = true;
                     useprocess.StartInfo.FileName = "cmd.exe";
-                    useprocess.StartInfo.Arguments = $"WMIC /NODE:\"{machineName}\" COMPUTERSYSTEM GET USERNAME | find \"PANBALTIC\"";
+                    useprocess.StartInfo.Arguments = $"/C WMIC /NODE:\"{machineName}\" COMPUTERSYSTEM GET USERNAME | find \"PANBALTIC\"";
                     useprocess.Start();
                     MessageBox.Show(useprocess.StandardOutput.ReadToEnd());
                     string adName = useprocess.StandardOutput.ReadToEnd().Split('\\')[1];
