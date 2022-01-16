@@ -252,5 +252,22 @@ namespace LDUsers
                 MessageBox.Show("Error: \n" + ex.Message);
             }
         }
+
+        private void CmdButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process useprocess;
+                useprocess = new System.Diagnostics.Process();
+                useprocess.StartInfo.FileName = "C:\\Tools\\PsTools\\PsExec.exe";
+                useprocess.StartInfo.Arguments = $"\\\\{machineName} -s cmd /c";
+                useprocess.Start();
+                useprocess.WaitForExit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: \n" + ex.Message);
+            }
+        }
     }
 }

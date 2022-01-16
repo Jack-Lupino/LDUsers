@@ -52,6 +52,10 @@
             this.ADInfoTBox = new System.Windows.Forms.TextBox();
             this.TabVeiksmai = new System.Windows.Forms.TabPage();
             this.TabExp = new System.Windows.Forms.TabPage();
+            this.CmdButton = new System.Windows.Forms.Button();
+            this.PshellButton = new System.Windows.Forms.Button();
+            this.DWButton = new System.Windows.Forms.Button();
+            this.TiaButton = new System.Windows.Forms.Button();
             this.PCGBox.SuspendLayout();
             this.ADGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPBox)).BeginInit();
@@ -188,11 +192,15 @@
             this.TabControl.Location = new System.Drawing.Point(12, 543);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(950, 402);
+            this.TabControl.Size = new System.Drawing.Size(950, 475);
             this.TabControl.TabIndex = 6;
             // 
             // TabInfo
             // 
+            this.TabInfo.Controls.Add(this.TiaButton);
+            this.TabInfo.Controls.Add(this.DWButton);
+            this.TabInfo.Controls.Add(this.PshellButton);
+            this.TabInfo.Controls.Add(this.CmdButton);
             this.TabInfo.Controls.Add(this.ADEnableButton);
             this.TabInfo.Controls.Add(this.ADpassButton);
             this.TabInfo.Controls.Add(this.ADUnlockButton);
@@ -203,7 +211,7 @@
             this.TabInfo.Location = new System.Drawing.Point(8, 39);
             this.TabInfo.Name = "TabInfo";
             this.TabInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInfo.Size = new System.Drawing.Size(934, 355);
+            this.TabInfo.Size = new System.Drawing.Size(934, 428);
             this.TabInfo.TabIndex = 0;
             this.TabInfo.Text = "Informacija";
             this.TabInfo.UseVisualStyleBackColor = true;
@@ -263,7 +271,7 @@
             this.PCinfoTBox.Location = new System.Drawing.Point(7, 24);
             this.PCinfoTBox.Multiline = true;
             this.PCinfoTBox.Name = "PCinfoTBox";
-            this.PCinfoTBox.Size = new System.Drawing.Size(285, 302);
+            this.PCinfoTBox.Size = new System.Drawing.Size(285, 313);
             this.PCinfoTBox.TabIndex = 1;
             // 
             // ADInfoTBox
@@ -297,13 +305,50 @@
             this.TabExp.Text = "Eksperimentalu";
             this.TabExp.UseVisualStyleBackColor = true;
             // 
+            // CmdButton
+            // 
+            this.CmdButton.Location = new System.Drawing.Point(299, 151);
+            this.CmdButton.Name = "CmdButton";
+            this.CmdButton.Size = new System.Drawing.Size(153, 60);
+            this.CmdButton.TabIndex = 7;
+            this.CmdButton.Text = "CMD";
+            this.CmdButton.UseVisualStyleBackColor = true;
+            this.CmdButton.Click += new System.EventHandler(this.CmdButton_Click);
+            // 
+            // PshellButton
+            // 
+            this.PshellButton.Location = new System.Drawing.Point(299, 218);
+            this.PshellButton.Name = "PshellButton";
+            this.PshellButton.Size = new System.Drawing.Size(153, 57);
+            this.PshellButton.TabIndex = 8;
+            this.PshellButton.Text = "PowerShell";
+            this.PshellButton.UseVisualStyleBackColor = true;
+            // 
+            // DWButton
+            // 
+            this.DWButton.Location = new System.Drawing.Point(299, 282);
+            this.DWButton.Name = "DWButton";
+            this.DWButton.Size = new System.Drawing.Size(153, 55);
+            this.DWButton.TabIndex = 9;
+            this.DWButton.Text = "Jungtis DW";
+            this.DWButton.UseVisualStyleBackColor = true;
+            // 
+            // TiaButton
+            // 
+            this.TiaButton.Location = new System.Drawing.Point(7, 344);
+            this.TiaButton.Name = "TiaButton";
+            this.TiaButton.Size = new System.Drawing.Size(162, 78);
+            this.TiaButton.TabIndex = 10;
+            this.TiaButton.Text = "TIA";
+            this.TiaButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(971, 956);
+            this.ClientSize = new System.Drawing.Size(971, 1030);
             this.Controls.Add(this.TabControl);
             this.Controls.Add(this.LogoPBox);
             this.Controls.Add(this.ADGBox);
@@ -348,6 +393,10 @@
         private System.Windows.Forms.Button ADEnableButton;
         private System.Windows.Forms.Button ADpassButton;
         private System.Windows.Forms.TabPage TabExp;
+        private System.Windows.Forms.Button TiaButton;
+        private System.Windows.Forms.Button DWButton;
+        private System.Windows.Forms.Button PshellButton;
+        private System.Windows.Forms.Button CmdButton;
     }
 }
 
