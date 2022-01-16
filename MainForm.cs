@@ -324,6 +324,12 @@ namespace LDUsers
                     MessageBox.Show(adName);
                     //ADNameTBox.Text = adName;
                     //ADNameButton_Click(sender, e);
+                    string str = String.Empty;
+                    foreach (var item in adName.Split('\\'))
+                    {
+                        str += "Line: " + item + "\r\n";
+                    }
+                    MessageBox.Show(str);
                 }
                 catch (Exception ex)
                 {
