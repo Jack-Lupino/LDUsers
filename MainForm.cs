@@ -122,8 +122,8 @@ namespace LDUsers
                     MessageBox.Show("Klaida: " + ex.InnerException.Message);
                 }
             }
-            PCNameL.Text = "PC: " + machineName;
-            PCipL.Text = "IP: " + ipAdress;
+            PCNameL.Text = machineName;
+            PCipL.Text = ipAdress;
             PCNameTBox.Text = "";
         }
 
@@ -161,8 +161,8 @@ namespace LDUsers
             //PrincipalSearcher searcher = new PrincipalSearcher(user);
             //PrincipalSearchResult<Principal> results = searcher.FindAll();
 
-            ADNameL.Text = "AD: " + user.SamAccountName;
-            ADfnL.Text = "Vardas: " + user.DisplayName;
+            ADNameL.Text = user.SamAccountName;
+            ADfnL.Text = user.DisplayName;
             //string expiration = "Never expires";
             //if (user.AccountExpirationDate.HasValue)
             //{
@@ -286,12 +286,10 @@ namespace LDUsers
             if (DWipChBox.Checked)
             {
                 flag = $"-c: -h: -m:{ipAdress} -a:1";
-                MessageBox.Show("IP");
             }
             else
             {
                 flag = $"-c: -m:{machineName}";
-                MessageBox.Show("Name");
             }
             try
             {
@@ -300,7 +298,6 @@ namespace LDUsers
                 useprocess.StartInfo.FileName = "C:\\Program Files\\SolarWinds\\DameWare Mini Remote Control x64\\DWRCC.exe";
                 useprocess.StartInfo.Arguments = flag;
                 useprocess.Start();
-                MessageBox.Show("pavyko");
             }
             catch (Exception ex)
             {

@@ -61,6 +61,10 @@
             this.DWipChBox = new System.Windows.Forms.CheckBox();
             this.ADpassChBox = new System.Windows.Forms.CheckBox();
             this.PCtoADButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.PCGBox.SuspendLayout();
             this.ADGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPBox)).BeginInit();
@@ -71,11 +75,11 @@
             // PCNameL
             // 
             this.PCNameL.AutoSize = true;
-            this.PCNameL.Location = new System.Drawing.Point(23, 48);
+            this.PCNameL.Location = new System.Drawing.Point(70, 49);
             this.PCNameL.Name = "PCNameL";
-            this.PCNameL.Size = new System.Drawing.Size(60, 25);
+            this.PCNameL.Size = new System.Drawing.Size(19, 25);
             this.PCNameL.TabIndex = 0;
-            this.PCNameL.Text = "PC: -";
+            this.PCNameL.Text = "-";
             // 
             // PCNameTBox
             // 
@@ -98,6 +102,8 @@
             // 
             // PCGBox
             // 
+            this.PCGBox.Controls.Add(this.label2);
+            this.PCGBox.Controls.Add(this.label1);
             this.PCGBox.Controls.Add(this.PCipL);
             this.PCGBox.Controls.Add(this.PCNameL);
             this.PCGBox.Controls.Add(this.PCNameButton);
@@ -112,14 +118,16 @@
             // PCipL
             // 
             this.PCipL.AutoSize = true;
-            this.PCipL.Location = new System.Drawing.Point(23, 73);
+            this.PCipL.Location = new System.Drawing.Point(70, 73);
             this.PCipL.Name = "PCipL";
-            this.PCipL.Size = new System.Drawing.Size(50, 25);
+            this.PCipL.Size = new System.Drawing.Size(19, 25);
             this.PCipL.TabIndex = 3;
-            this.PCipL.Text = "IP: -";
+            this.PCipL.Text = "-";
             // 
             // ADGBox
             // 
+            this.ADGBox.Controls.Add(this.label4);
+            this.ADGBox.Controls.Add(this.label3);
             this.ADGBox.Controls.Add(this.FNameButton);
             this.ADGBox.Controls.Add(this.ADNameButton);
             this.ADGBox.Controls.Add(this.ADNameTBox);
@@ -163,20 +171,20 @@
             // ADfnL
             // 
             this.ADfnL.AutoSize = true;
-            this.ADfnL.Location = new System.Drawing.Point(21, 73);
+            this.ADfnL.Location = new System.Drawing.Point(103, 74);
             this.ADfnL.Name = "ADfnL";
-            this.ADfnL.Size = new System.Drawing.Size(99, 25);
+            this.ADfnL.Size = new System.Drawing.Size(19, 25);
             this.ADfnL.TabIndex = 1;
-            this.ADfnL.Text = "Vardas: -";
+            this.ADfnL.Text = "-";
             // 
             // ADNameL
             // 
             this.ADNameL.AutoSize = true;
-            this.ADNameL.Location = new System.Drawing.Point(21, 48);
+            this.ADNameL.Location = new System.Drawing.Point(103, 49);
             this.ADNameL.Name = "ADNameL";
-            this.ADNameL.Size = new System.Drawing.Size(60, 25);
+            this.ADNameL.Size = new System.Drawing.Size(19, 25);
             this.ADNameL.TabIndex = 0;
-            this.ADNameL.Text = "AD: -";
+            this.ADNameL.Text = "-";
             // 
             // LogoPBox
             // 
@@ -401,6 +409,42 @@
             this.PCtoADButton.UseVisualStyleBackColor = true;
             this.PCtoADButton.Click += new System.EventHandler(this.PCtoADButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "PC:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "IP:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 25);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "AD:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 25);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Vardas:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -462,6 +506,10 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button PCtoADButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }
 
