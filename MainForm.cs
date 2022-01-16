@@ -260,7 +260,7 @@ namespace LDUsers
                 System.Diagnostics.Process useprocess;
                 useprocess = new System.Diagnostics.Process();
                 useprocess.StartInfo.FileName = "C:\\Tools\\PsTools\\PsExec.exe";
-                useprocess.StartInfo.Arguments = $"\\\\{machineName} -s cmd /c";
+                useprocess.StartInfo.Arguments = $"\\\\{machineName} -s cmd";
                 useprocess.Start();
                 useprocess.WaitForExit();
             }
