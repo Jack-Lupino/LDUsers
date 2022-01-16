@@ -151,6 +151,7 @@ namespace LDUsers
             pc = new PrincipalContext(ContextType.Domain, "panbaltic.int");
             user = UserPrincipal.FindByIdentity(pc, ADNameTBox.Text);
             DirectoryEntry entry = (DirectoryEntry)user.GetUnderlyingObject();
+            MessageBox.Show(entry.InvokeGet("PasswordExpirationDate").ToString());
             //ActiveDs.IADsUser native = (IADsUser)entry.NativeObject;
             //var maxPasswordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "MaxPasswordAge").Value;
             //var passwordAge = (int) entry.Properties.Cast<PropertyValueCollection>().First(p => p.PropertyName == "PasswordAge").Value;
@@ -330,6 +331,7 @@ namespace LDUsers
                     string yet = str[str.Count - 1].ToString();
                     ADNameTBox.Text = yet.Substring(0, yet.Length);
                     ADNameButton_Click(sender, e);
+
                 }
                 catch (Exception ex)
                 {
