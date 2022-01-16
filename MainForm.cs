@@ -168,10 +168,12 @@ namespace LDUsers
             //{
             //    expiration = user.AccountExpirationDate.Value.ToLocalTime().ToString();
             //}
+            DateTime passExpiry = (DateTime) entry.InvokeGet("PasswordExpirationDate");
             ADInfoTBox.Text =
                 "Galioja: " + user.Enabled + "\r\n" +
-                "Užrakinta: " + user.IsAccountLockedOut() + "\r\n\r\n" +
-                "Slaptažodis pasibaigs:\r\n" + entry.InvokeGet("PasswordExpirationDate") + "\r\n" +
+                "Užrakinta: " + user.IsAccountLockedOut() + "\r\n" +
+                "Pasibaigęs slaptažodis: " + (DateTime.Now >= passExpiry) + "\r\n\r\n" +
+                "Slaptažodis pasibaigs:\r\n" + passExpiry + "\r\n" +
                 "Slaptažodis keistas:\r\n" + user.LastPasswordSet + "\r\n" +
                 "Paskutinį kartą jungtąsi:\r\n" + user.LastLogon + "\r\n";
             /*
