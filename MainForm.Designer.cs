@@ -65,6 +65,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ADtoPCButton = new System.Windows.Forms.Button();
             this.PCGBox.SuspendLayout();
             this.ADGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPBox)).BeginInit();
@@ -241,6 +242,7 @@
             this.TiaButton.TabIndex = 10;
             this.TiaButton.Text = "TIA";
             this.TiaButton.UseVisualStyleBackColor = true;
+            this.TiaButton.Click += new System.EventHandler(this.TiaButton_Click);
             // 
             // DWButton
             // 
@@ -445,6 +447,16 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Vardas:";
             // 
+            // ADtoPCButton
+            // 
+            this.ADtoPCButton.Location = new System.Drawing.Point(384, 368);
+            this.ADtoPCButton.Name = "ADtoPCButton";
+            this.ADtoPCButton.Size = new System.Drawing.Size(55, 50);
+            this.ADtoPCButton.TabIndex = 8;
+            this.ADtoPCButton.Text = "<<";
+            this.ADtoPCButton.UseVisualStyleBackColor = true;
+            this.ADtoPCButton.Click += new System.EventHandler(this.ADtoPCButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -452,6 +464,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(971, 1030);
+            this.Controls.Add(this.ADtoPCButton);
             this.Controls.Add(this.PCtoADButton);
             this.Controls.Add(this.TabControl);
             this.Controls.Add(this.LogoPBox);
@@ -510,6 +523,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button ADtoPCButton;
     }
 }
 

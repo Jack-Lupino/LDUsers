@@ -221,11 +221,11 @@ namespace LDUsers
         {
             try
             {
-                System.Diagnostics.Process useprocess;
-                useprocess = new System.Diagnostics.Process();
-                useprocess.StartInfo.FileName = "C:\\Users\\zygzal\\AutoPagalba.cmd";
-                useprocess.StartInfo.Arguments = $"{machineName} {user.SamAccountName}";
-                useprocess.Start();
+                System.Diagnostics.Process proc;
+                proc = new System.Diagnostics.Process();
+                proc.StartInfo.FileName = "C:\\Users\\zygzal\\AutoPagalba.cmd";
+                proc.StartInfo.Arguments = $"{machineName} {user.SamAccountName}";
+                proc.Start();
             }
             catch (Exception ex)
             {
@@ -237,10 +237,10 @@ namespace LDUsers
         {
             try
             {
-                System.Diagnostics.Process useprocess;
-                useprocess = new System.Diagnostics.Process();
-                useprocess.StartInfo.FileName = "Z:\\TELIA\\PKINST\\BDC\\BackOffice_LD.cmd";
-                useprocess.Start();
+                System.Diagnostics.Process proc;
+                proc = new System.Diagnostics.Process();
+                proc.StartInfo.FileName = "Z:\\TELIA\\PKINST\\BDC\\BackOffice_LD.cmd";
+                proc.Start();
             }
             catch (Exception ex)
             {
@@ -252,11 +252,11 @@ namespace LDUsers
         {
             try
             {
-                System.Diagnostics.Process useprocess;
-                useprocess = new System.Diagnostics.Process();
-                useprocess.StartInfo.FileName = "C:\\Tools\\PsTools\\PsExec.exe";
-                useprocess.StartInfo.Arguments = $"\\\\{machineName} -s cmd";
-                useprocess.Start();
+                System.Diagnostics.Process proc;
+                proc = new System.Diagnostics.Process();
+                proc.StartInfo.FileName = "C:\\Tools\\PsTools\\PsExec.exe";
+                proc.StartInfo.Arguments = $"\\\\{machineName} -s cmd";
+                proc.Start();
             }
             catch (Exception ex)
             {
@@ -268,11 +268,11 @@ namespace LDUsers
         {
             try
             {
-                System.Diagnostics.Process useprocess;
-                useprocess = new System.Diagnostics.Process();
-                useprocess.StartInfo.FileName = "C:\\Tools\\PsTools\\PsExec.exe";
-                useprocess.StartInfo.Arguments = $"\\\\{machineName} -s Powershell";
-                useprocess.Start();
+                System.Diagnostics.Process proc;
+                proc = new System.Diagnostics.Process();
+                proc.StartInfo.FileName = "C:\\Tools\\PsTools\\PsExec.exe";
+                proc.StartInfo.Arguments = $"\\\\{machineName} -s Powershell";
+                proc.Start();
             }
             catch (Exception ex)
             {
@@ -293,11 +293,11 @@ namespace LDUsers
             }
             try
             {
-                System.Diagnostics.Process useprocess;
-                useprocess = new System.Diagnostics.Process();
-                useprocess.StartInfo.FileName = "C:\\Program Files\\SolarWinds\\DameWare Mini Remote Control x64\\DWRCC.exe";
-                useprocess.StartInfo.Arguments = flag;
-                useprocess.Start();
+                System.Diagnostics.Process proc;
+                proc = new System.Diagnostics.Process();
+                proc.StartInfo.FileName = "C:\\Program Files\\SolarWinds\\DameWare Mini Remote Control x64\\DWRCC.exe";
+                proc.StartInfo.Arguments = flag;
+                proc.Start();
             }
             catch (Exception ex)
             {
@@ -311,16 +311,16 @@ namespace LDUsers
             {
                 try
                 {
-                    System.Diagnostics.Process useprocess;
-                    useprocess = new System.Diagnostics.Process();
-                    useprocess.StartInfo.UseShellExecute = false;
-                    useprocess.StartInfo.RedirectStandardOutput = true;
-                    useprocess.StartInfo.CreateNoWindow = true;
-                    useprocess.StartInfo.FileName = "cmd.exe";
-                    useprocess.StartInfo.Arguments = $"/C WMIC /NODE:\"{machineName}\" COMPUTERSYSTEM GET USERNAME";
-                    useprocess.Start();
-                    string adName = useprocess.StandardOutput.ReadToEnd().Trim();
-                    useprocess.WaitForExit();
+                    System.Diagnostics.Process proc;
+                    proc = new System.Diagnostics.Process();
+                    proc.StartInfo.UseShellExecute = false;
+                    proc.StartInfo.RedirectStandardOutput = true;
+                    proc.StartInfo.CreateNoWindow = true;
+                    proc.StartInfo.FileName = "cmd.exe";
+                    proc.StartInfo.Arguments = $"/C WMIC /NODE:\"{machineName}\" COMPUTERSYSTEM GET USERNAME";
+                    proc.Start();
+                    string adName = proc.StandardOutput.ReadToEnd().Trim();
+                    proc.WaitForExit();
                     ArrayList str = new ArrayList();
                     foreach (var item in adName.Split('\\'))
                     {
@@ -335,8 +335,26 @@ namespace LDUsers
                 {
                     MessageBox.Show("Error: \n" + ex.Message);
                 }
-                
+            }
+        }
 
+        private void ADtoPCButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TiaButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process proc;
+                proc = new System.Diagnostics.Process();
+                proc.StartInfo.FileName = "C:\\Users\\zygzal\\Downloads\\frmservlet.jnlp";
+                proc.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: \n" + ex.Message);
             }
         }
     }
