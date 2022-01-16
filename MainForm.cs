@@ -269,5 +269,51 @@ namespace LDUsers
                 MessageBox.Show("Error: \n" + ex.Message);
             }
         }
+
+        private void PshellButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process useprocess;
+                useprocess = new System.Diagnostics.Process();
+                useprocess.StartInfo.FileName = "C:\\Tools\\PsTools\\PsExec.exe";
+                useprocess.StartInfo.Arguments = $"\\\\{machineName} -s Powershell";
+                useprocess.Start();
+                useprocess.WaitForExit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: \n" + ex.Message);
+            }
+        }
+
+        private void DWButton_Click(object sender, EventArgs e)
+        {
+            string flag;
+            if (DWipChBox.Checked)
+            {
+                flag = $"-c: -h: -m:{ipAdress} -a:1";
+                MessageBox.Show("IP");
+            }
+            else
+            {
+                flag = $"-c: -m:{machineName}";
+                MessageBox.Show("Name");
+            }
+            try
+            {
+                System.Diagnostics.Process useprocess;
+                useprocess = new System.Diagnostics.Process();
+                useprocess.StartInfo.FileName = "C:\\Program Files\\SolarWinds\\DameWare Mini Remote Control x64\\DWRCC.exe";
+                useprocess.StartInfo.Arguments = flag;
+                useprocess.Start();
+                useprocess.WaitForExit();
+                MessageBox.Show("pavyko");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: \n" + ex.Message);
+            }
+        }
     }
 }

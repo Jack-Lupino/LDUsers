@@ -43,6 +43,10 @@
             this.LogoPBox = new System.Windows.Forms.PictureBox();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.TabInfo = new System.Windows.Forms.TabPage();
+            this.TiaButton = new System.Windows.Forms.Button();
+            this.DWButton = new System.Windows.Forms.Button();
+            this.PshellButton = new System.Windows.Forms.Button();
+            this.CmdButton = new System.Windows.Forms.Button();
             this.ADEnableButton = new System.Windows.Forms.Button();
             this.ADpassButton = new System.Windows.Forms.Button();
             this.ADUnlockButton = new System.Windows.Forms.Button();
@@ -52,10 +56,10 @@
             this.ADInfoTBox = new System.Windows.Forms.TextBox();
             this.TabVeiksmai = new System.Windows.Forms.TabPage();
             this.TabExp = new System.Windows.Forms.TabPage();
-            this.CmdButton = new System.Windows.Forms.Button();
-            this.PshellButton = new System.Windows.Forms.Button();
-            this.DWButton = new System.Windows.Forms.Button();
-            this.TiaButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.DWipChBox = new System.Windows.Forms.CheckBox();
+            this.ADpassChBox = new System.Windows.Forms.CheckBox();
             this.PCGBox.SuspendLayout();
             this.ADGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPBox)).BeginInit();
@@ -197,6 +201,10 @@
             // 
             // TabInfo
             // 
+            this.TabInfo.Controls.Add(this.ADpassChBox);
+            this.TabInfo.Controls.Add(this.DWipChBox);
+            this.TabInfo.Controls.Add(this.button2);
+            this.TabInfo.Controls.Add(this.button1);
             this.TabInfo.Controls.Add(this.TiaButton);
             this.TabInfo.Controls.Add(this.DWButton);
             this.TabInfo.Controls.Add(this.PshellButton);
@@ -215,6 +223,45 @@
             this.TabInfo.TabIndex = 0;
             this.TabInfo.Text = "Informacija";
             this.TabInfo.UseVisualStyleBackColor = true;
+            // 
+            // TiaButton
+            // 
+            this.TiaButton.Location = new System.Drawing.Point(95, 343);
+            this.TiaButton.Name = "TiaButton";
+            this.TiaButton.Size = new System.Drawing.Size(73, 78);
+            this.TiaButton.TabIndex = 10;
+            this.TiaButton.Text = "TIA";
+            this.TiaButton.UseVisualStyleBackColor = true;
+            // 
+            // DWButton
+            // 
+            this.DWButton.Location = new System.Drawing.Point(299, 282);
+            this.DWButton.Name = "DWButton";
+            this.DWButton.Size = new System.Drawing.Size(153, 55);
+            this.DWButton.TabIndex = 9;
+            this.DWButton.Text = "Jungtis DW";
+            this.DWButton.UseVisualStyleBackColor = true;
+            this.DWButton.Click += new System.EventHandler(this.DWButton_Click);
+            // 
+            // PshellButton
+            // 
+            this.PshellButton.Location = new System.Drawing.Point(299, 218);
+            this.PshellButton.Name = "PshellButton";
+            this.PshellButton.Size = new System.Drawing.Size(153, 57);
+            this.PshellButton.TabIndex = 8;
+            this.PshellButton.Text = "PowerShell";
+            this.PshellButton.UseVisualStyleBackColor = true;
+            this.PshellButton.Click += new System.EventHandler(this.PshellButton_Click);
+            // 
+            // CmdButton
+            // 
+            this.CmdButton.Location = new System.Drawing.Point(299, 151);
+            this.CmdButton.Name = "CmdButton";
+            this.CmdButton.Size = new System.Drawing.Size(153, 60);
+            this.CmdButton.TabIndex = 7;
+            this.CmdButton.Text = "CMD";
+            this.CmdButton.UseVisualStyleBackColor = true;
+            this.CmdButton.Click += new System.EventHandler(this.CmdButton_Click);
             // 
             // ADEnableButton
             // 
@@ -290,7 +337,7 @@
             this.TabVeiksmai.Location = new System.Drawing.Point(8, 39);
             this.TabVeiksmai.Name = "TabVeiksmai";
             this.TabVeiksmai.Padding = new System.Windows.Forms.Padding(3);
-            this.TabVeiksmai.Size = new System.Drawing.Size(934, 355);
+            this.TabVeiksmai.Size = new System.Drawing.Size(934, 428);
             this.TabVeiksmai.TabIndex = 1;
             this.TabVeiksmai.Text = "Veiksmai";
             this.TabVeiksmai.UseVisualStyleBackColor = true;
@@ -300,47 +347,48 @@
             this.TabExp.Location = new System.Drawing.Point(8, 39);
             this.TabExp.Name = "TabExp";
             this.TabExp.Padding = new System.Windows.Forms.Padding(3);
-            this.TabExp.Size = new System.Drawing.Size(934, 355);
+            this.TabExp.Size = new System.Drawing.Size(934, 428);
             this.TabExp.TabIndex = 2;
             this.TabExp.Text = "Eksperimentalu";
             this.TabExp.UseVisualStyleBackColor = true;
             // 
-            // CmdButton
+            // button1
             // 
-            this.CmdButton.Location = new System.Drawing.Point(299, 151);
-            this.CmdButton.Name = "CmdButton";
-            this.CmdButton.Size = new System.Drawing.Size(153, 60);
-            this.CmdButton.TabIndex = 7;
-            this.CmdButton.Text = "CMD";
-            this.CmdButton.UseVisualStyleBackColor = true;
-            this.CmdButton.Click += new System.EventHandler(this.CmdButton_Click);
+            this.button1.Location = new System.Drawing.Point(7, 343);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(82, 48);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Detali";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // PshellButton
+            // button2
             // 
-            this.PshellButton.Location = new System.Drawing.Point(299, 218);
-            this.PshellButton.Name = "PshellButton";
-            this.PshellButton.Size = new System.Drawing.Size(153, 57);
-            this.PshellButton.TabIndex = 8;
-            this.PshellButton.Text = "PowerShell";
-            this.PshellButton.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(473, 343);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 48);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Detali";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // DWButton
+            // DWipChBox
             // 
-            this.DWButton.Location = new System.Drawing.Point(299, 282);
-            this.DWButton.Name = "DWButton";
-            this.DWButton.Size = new System.Drawing.Size(153, 55);
-            this.DWButton.TabIndex = 9;
-            this.DWButton.Text = "Jungtis DW";
-            this.DWButton.UseVisualStyleBackColor = true;
+            this.DWipChBox.AutoSize = true;
+            this.DWipChBox.Location = new System.Drawing.Point(299, 343);
+            this.DWipChBox.Name = "DWipChBox";
+            this.DWipChBox.Size = new System.Drawing.Size(167, 29);
+            this.DWipChBox.TabIndex = 13;
+            this.DWipChBox.Text = "Jungtis su IP";
+            this.DWipChBox.UseVisualStyleBackColor = true;
             // 
-            // TiaButton
+            // ADpassChBox
             // 
-            this.TiaButton.Location = new System.Drawing.Point(7, 344);
-            this.TiaButton.Name = "TiaButton";
-            this.TiaButton.Size = new System.Drawing.Size(162, 78);
-            this.TiaButton.TabIndex = 10;
-            this.TiaButton.Text = "TIA";
-            this.TiaButton.UseVisualStyleBackColor = true;
+            this.ADpassChBox.AutoSize = true;
+            this.ADpassChBox.Location = new System.Drawing.Point(572, 343);
+            this.ADpassChBox.Name = "ADpassChBox";
+            this.ADpassChBox.Size = new System.Drawing.Size(356, 29);
+            this.ADpassChBox.TabIndex = 14;
+            this.ADpassChBox.Text = "Must change pass on next logon";
+            this.ADpassChBox.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -397,6 +445,10 @@
         private System.Windows.Forms.Button DWButton;
         private System.Windows.Forms.Button PshellButton;
         private System.Windows.Forms.Button CmdButton;
+        private System.Windows.Forms.CheckBox ADpassChBox;
+        private System.Windows.Forms.CheckBox DWipChBox;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
 
