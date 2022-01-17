@@ -289,7 +289,7 @@ namespace LDUsers
             }
             else
             {
-                flag = $"-c: -m:{machineName}";
+                flag = $"-c: -h: -m:{machineName} -a:1";
             }
             try
             {
