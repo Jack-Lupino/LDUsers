@@ -318,7 +318,7 @@ namespace LDUsers
                     {
                         var item = key.GetValue("LastLoggedOnUser");
                         string itemValue = item == null ? "No Logon Found" : item.ToString();
-                        ADNameTBox.Text = itemValue;
+                        ADNameTBox.Text = itemValue.Split('\\')[1];
                         ADNameButton_Click(sender, e);
                     }
                 }
