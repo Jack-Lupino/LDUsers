@@ -362,7 +362,7 @@ namespace LDUsers
                 proc.StartInfo.UseShellExecute = false;
                 proc.StartInfo.RedirectStandardOutput = true;
                 proc.StartInfo.CreateNoWindow = true;
-                proc.StartInfo.FileName = "test.ps1";
+                proc.StartInfo.FileName = "C:\\Users\\Downloads\\test.ps1";
                 proc.StartInfo.Arguments = machineName;
                 proc.Start();
                 string pcName = proc.StandardOutput.ReadToEnd().Trim();
