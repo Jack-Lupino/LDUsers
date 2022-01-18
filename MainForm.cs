@@ -355,7 +355,25 @@ namespace LDUsers
 
         private void ADtoPCButton_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                System.Diagnostics.Process proc;
+                proc = new System.Diagnostics.Process();
+                proc.StartInfo.UseShellExecute = false;
+                proc.StartInfo.RedirectStandardOutput = true;
+                proc.StartInfo.CreateNoWindow = true;
+                proc.StartInfo.FileName = "test.ps1";
+                proc.StartInfo.Arguments = machineName;
+                proc.Start();
+                string pcName = proc.StandardOutput.ReadToEnd().Trim();
+                proc.WaitForExit();
+                PCNameTBox.Text = pcName;
+                PCNameButton_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: \n" + ex.Message);
+            }
         }
 
         private void TiaButton_Click(object sender, EventArgs e)
