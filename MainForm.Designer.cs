@@ -33,8 +33,12 @@
             this.PCNameTBox = new System.Windows.Forms.TextBox();
             this.PCNameButton = new System.Windows.Forms.Button();
             this.PCGBox = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.PCipL = new System.Windows.Forms.Label();
             this.ADGBox = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.FNameButton = new System.Windows.Forms.Button();
             this.ADNameButton = new System.Windows.Forms.Button();
             this.ADNameTBox = new System.Windows.Forms.TextBox();
@@ -43,6 +47,10 @@
             this.LogoPBox = new System.Windows.Forms.PictureBox();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.TabInfo = new System.Windows.Forms.TabPage();
+            this.ADpassChBox = new System.Windows.Forms.CheckBox();
+            this.DWipChBox = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.TiaButton = new System.Windows.Forms.Button();
             this.DWButton = new System.Windows.Forms.Button();
             this.PshellButton = new System.Windows.Forms.Button();
@@ -56,16 +64,9 @@
             this.ADInfoTBox = new System.Windows.Forms.TextBox();
             this.TabVeiksmai = new System.Windows.Forms.TabPage();
             this.TabExp = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.DWipChBox = new System.Windows.Forms.CheckBox();
-            this.ADpassChBox = new System.Windows.Forms.CheckBox();
             this.PCtoADButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.ADtoPCButton = new System.Windows.Forms.Button();
+            this.TopCBox = new System.Windows.Forms.CheckBox();
             this.PCGBox.SuspendLayout();
             this.ADGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPBox)).BeginInit();
@@ -116,6 +117,24 @@
             this.PCGBox.TabStop = false;
             this.PCGBox.Text = "Kompiuteris";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "IP:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "PC:";
+            // 
             // PCipL
             // 
             this.PCipL.AutoSize = true;
@@ -140,6 +159,24 @@
             this.ADGBox.TabIndex = 4;
             this.ADGBox.TabStop = false;
             this.ADGBox.Text = "Vartotojas";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 25);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Vardas:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 25);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "AD:";
             // 
             // FNameButton
             // 
@@ -233,6 +270,44 @@
             this.TabInfo.TabIndex = 0;
             this.TabInfo.Text = "Informacija";
             this.TabInfo.UseVisualStyleBackColor = true;
+            // 
+            // ADpassChBox
+            // 
+            this.ADpassChBox.AutoSize = true;
+            this.ADpassChBox.Location = new System.Drawing.Point(572, 343);
+            this.ADpassChBox.Name = "ADpassChBox";
+            this.ADpassChBox.Size = new System.Drawing.Size(356, 29);
+            this.ADpassChBox.TabIndex = 14;
+            this.ADpassChBox.Text = "Must change pass on next logon";
+            this.ADpassChBox.UseVisualStyleBackColor = true;
+            // 
+            // DWipChBox
+            // 
+            this.DWipChBox.AutoSize = true;
+            this.DWipChBox.Location = new System.Drawing.Point(299, 343);
+            this.DWipChBox.Name = "DWipChBox";
+            this.DWipChBox.Size = new System.Drawing.Size(167, 29);
+            this.DWipChBox.TabIndex = 13;
+            this.DWipChBox.Text = "Jungtis su IP";
+            this.DWipChBox.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(473, 343);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 48);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Detali";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(7, 343);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 48);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Detali";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // TiaButton
             // 
@@ -363,44 +438,6 @@
             this.TabExp.Text = "Eksperimentalu";
             this.TabExp.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(7, 343);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 48);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Detali";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(473, 343);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 48);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Detali";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // DWipChBox
-            // 
-            this.DWipChBox.AutoSize = true;
-            this.DWipChBox.Location = new System.Drawing.Point(299, 343);
-            this.DWipChBox.Name = "DWipChBox";
-            this.DWipChBox.Size = new System.Drawing.Size(167, 29);
-            this.DWipChBox.TabIndex = 13;
-            this.DWipChBox.Text = "Jungtis su IP";
-            this.DWipChBox.UseVisualStyleBackColor = true;
-            // 
-            // ADpassChBox
-            // 
-            this.ADpassChBox.AutoSize = true;
-            this.ADpassChBox.Location = new System.Drawing.Point(572, 343);
-            this.ADpassChBox.Name = "ADpassChBox";
-            this.ADpassChBox.Size = new System.Drawing.Size(356, 29);
-            this.ADpassChBox.TabIndex = 14;
-            this.ADpassChBox.Text = "Must change pass on next logon";
-            this.ADpassChBox.UseVisualStyleBackColor = true;
-            // 
             // PCtoADButton
             // 
             this.PCtoADButton.Location = new System.Drawing.Point(384, 312);
@@ -410,42 +447,6 @@
             this.PCtoADButton.Text = ">>";
             this.PCtoADButton.UseVisualStyleBackColor = true;
             this.PCtoADButton.Click += new System.EventHandler(this.PCtoADButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "PC:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 25);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "IP:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 25);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "AD:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 25);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Vardas:";
             // 
             // ADtoPCButton
             // 
@@ -457,6 +458,17 @@
             this.ADtoPCButton.UseVisualStyleBackColor = true;
             this.ADtoPCButton.Click += new System.EventHandler(this.ADtoPCButton_Click);
             // 
+            // TopCBox
+            // 
+            this.TopCBox.AutoSize = true;
+            this.TopCBox.Location = new System.Drawing.Point(330, 263);
+            this.TopCBox.Name = "TopCBox";
+            this.TopCBox.Size = new System.Drawing.Size(109, 29);
+            this.TopCBox.TabIndex = 9;
+            this.TopCBox.Text = "OnTop";
+            this.TopCBox.UseVisualStyleBackColor = true;
+            this.TopCBox.CheckedChanged += new System.EventHandler(this.TopCBox_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -464,6 +476,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(971, 1030);
+            this.Controls.Add(this.TopCBox);
             this.Controls.Add(this.ADtoPCButton);
             this.Controls.Add(this.PCtoADButton);
             this.Controls.Add(this.TabControl);
@@ -482,6 +495,7 @@
             this.TabInfo.ResumeLayout(false);
             this.TabInfo.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -524,6 +538,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button ADtoPCButton;
+        private System.Windows.Forms.CheckBox TopCBox;
     }
 }
 
