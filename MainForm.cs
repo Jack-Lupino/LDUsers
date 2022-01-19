@@ -362,8 +362,8 @@ namespace LDUsers
                 proc.StartInfo.UseShellExecute = false;
                 proc.StartInfo.RedirectStandardOutput = true;
                 proc.StartInfo.CreateNoWindow = true;
-                proc.StartInfo.FileName = "C:\\Users\\Downloads\\test.ps1";
-                proc.StartInfo.Arguments = machineName;
+                proc.StartInfo.FileName = "powershell.exe";
+                proc.StartInfo.Arguments = $"C:\\Users\\Downloads\\test.ps1 {machineName}";
                 proc.Start();
                 string pcName = proc.StandardOutput.ReadToEnd().Trim();
                 proc.WaitForExit();
