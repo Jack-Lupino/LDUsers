@@ -17,6 +17,8 @@ namespace LDUsers
         private UserPrincipal user;
         private string machineName;
         private string ipAdress;
+        private string adName;
+        private string adFullName;
         private IPHostEntry host;
 
         public MainForm()
@@ -162,8 +164,10 @@ namespace LDUsers
             //PrincipalSearcher searcher = new PrincipalSearcher(user);
             //PrincipalSearchResult<Principal> results = searcher.FindAll();
 
-            ADNameL.Text = user.SamAccountName;
-            ADfnL.Text = user.DisplayName;
+            adName = user.SamAccountName;
+            adFullName = user.DisplayName;
+            ADNameL.Text = adName;
+            ADfnL.Text = adFullName;
             //string expiration = "Never expires";
             //if (user.AccountExpirationDate.HasValue)
             //{
@@ -355,6 +359,11 @@ namespace LDUsers
 
         private void ADtoPCButton_Click(object sender, EventArgs e)
         {
+            string ADtoPCScript = String.Empty;
+            ADtoPCScript += "if((Get-Module ConfigurationManager) -eq $null) {Import - Module \"$($ENV:SMS_ADMIN_UI_PATH)\\..\\ConfigurationManager.psd1\"} ; ";
+            ADtoPCScript += "if((Get-PSDrive -Name \"LD2\" -PSProvider CMSite -ErrorAction SilentlyContinue) -eq $null) {New - PSDrive - Name \"LD2\" - PSProvider CMSite - Root \"Pbsh5v-psccap01.panbaltic.int\"} ; ";
+            ADtoPCScript += "Set - Location \"$(\"LD2\"):\\\" ; ";
+            ADtoPCScript += $"Get-CMUserDeviceAffinity -UserName \"panbaltic\\{adName}\" | Select-Object -ExpandProperty ResourceName";
             try
             {
                 System.Diagnostics.Process proc;
@@ -363,7 +372,7 @@ namespace LDUsers
                 proc.StartInfo.RedirectStandardOutput = true;
                 proc.StartInfo.CreateNoWindow = true;
                 proc.StartInfo.FileName = "powershell.exe";
-                proc.StartInfo.Arguments = $"C:\\Users\\Downloads\\test.ps1 {machineName}";
+                proc.StartInfo.Arguments = $"/C C:\\Users\\Downloads\\test.ps1 {adName}";
                 proc.Start();
                 string pcName = proc.StandardOutput.ReadToEnd().Trim();
                 proc.WaitForExit();
