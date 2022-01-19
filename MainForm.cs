@@ -373,9 +373,9 @@ namespace LDUsers
                 proc.StartInfo.RedirectStandardOutput = true;
                 proc.StartInfo.CreateNoWindow = true;
                 proc.StartInfo.FileName = "powershell.exe";
-                proc.StartInfo.Arguments = $"/C {ADtoPCScript}";
+                proc.StartInfo.Arguments = ADtoPCScript;
                 proc.Start();
-                string pcName = proc.StandardOutput.ReadToEnd().Trim();
+                string pcName = proc.StandardOutput.ReadToEnd();
                 MessageBox.Show(pcName);
                 proc.WaitForExit();
                 PCNameTBox.Text = pcName;
