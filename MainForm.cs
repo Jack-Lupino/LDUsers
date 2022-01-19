@@ -372,7 +372,7 @@ namespace LDUsers
                 proc.StartInfo.RedirectStandardOutput = true;
                 proc.StartInfo.CreateNoWindow = true;
                 proc.StartInfo.FileName = "powershell.exe";
-                proc.StartInfo.Arguments = $"/C C:\\Users\\Downloads\\test.ps1 {adName}";
+                proc.StartInfo.Arguments = $"/C {ADtoPCScript}";
                 proc.Start();
                 string pcName = proc.StandardOutput.ReadToEnd().Trim();
                 proc.WaitForExit();
