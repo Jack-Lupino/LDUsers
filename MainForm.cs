@@ -359,11 +359,8 @@ namespace LDUsers
 
         private void ADtoPCButton_Click(object sender, EventArgs e)
         {
-            string ADtoPCScript = String.Empty;
-            ADtoPCScript += "if((Get-Module ConfigurationManager) -eq $null) {Import-Module \"$($ENV:SMS_ADMIN_UI_PATH)\\..\\ConfigurationManager.psd1\"} ; ";
-            ADtoPCScript += "if((Get-PSDrive -Name \"LD2\" -PSProvider CMSite -ErrorAction SilentlyContinue) -eq $null) {New-PSDrive -Name \"LD2\" -PSProvider CMSite -Root \"Pbsh5v-psccap01.panbaltic.int\"} ; ";
-            ADtoPCScript += "Set-Location \"$(\"LD2\"):\\\" ; ";
-            ADtoPCScript += $"Get-CMUserDeviceAffinity -UserName \"panbaltic\\{adName}\" | Select-Object -ExpandProperty ResourceName";
+            
+            string ADtoPCScript = $"if((Get-Module ConfigurationManager) -eq $null) {{Import-Module \"$($ENV: SMS_ADMIN_UI_PATH)\\..\\ConfigurationManager.psd1\"}};if((Get-PSDrive -Name \"LD2\" -PSProvider CMSite -ErrorAction SilentlyContinue) -eq $null) {{New-PSDrive -Name \"LD2\" -PSProvider CMSite -Root \"Pbsh5v - psccap01.panbaltic.int\"}};Set-Location \"$(\"LD2\"):\\\";Get-CMUserDeviceAffinity -UserName \"panbaltic\\{adName}\" | Select-Object -ExpandProperty ResourceName";
             MessageBox.Show(ADtoPCScript);
             try
             {
