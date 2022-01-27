@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections;
+using System.Configuration;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.Linq;
@@ -163,7 +164,7 @@ namespace LDUsers
 
             //PrincipalSearcher searcher = new PrincipalSearcher(user);
             //PrincipalSearchResult<Principal> results = searcher.FindAll();
-
+            
             adName = user.SamAccountName;
             adFullName = user.DisplayName;
             ADNameL.Text = adName;
@@ -290,11 +291,11 @@ namespace LDUsers
             string flag;
             if (DWipChBox.Checked)
             {
-                flag = $"-c: -h: -m:{ipAdress} -a:1";
+                flag = $"-c: -h: -m:{ipAdress} -a:1 -x:";
             }
             else
             {
-                flag = $"-c: -h: -m:{machineName} -a:1";
+                flag = $"-c: -h: -m:{machineName} -a:1 -x:";
             }
             try
             {
@@ -359,7 +360,7 @@ namespace LDUsers
 
         private void ADtoPCButton_Click(object sender, EventArgs e)
         {
-            
+            //var cm = ConfigurationManager.AppSettings[];
             string ADtoPCScript = $"if((Get-Module ConfigurationManager) -eq $null) {{Import-Module \"$($ENV:SMS_ADMIN_UI_PATH)\\..\\ConfigurationManager.psd1\"}};if((Get-PSDrive -Name \"LD2\" -PSProvider CMSite -ErrorAction SilentlyContinue) -eq $null) {{New-PSDrive -Name \"LD2\" -PSProvider CMSite -Root \"Pbsh5v-psccap01.panbaltic.int\"}};Set-Location \"$(\"LD2\"):\\\";Get-CMUserDeviceAffinity -UserName \"panbaltic\\{adName}\" | Select-Object -ExpandProperty ResourceName";
             MessageBox.Show(ADtoPCScript);
             try
